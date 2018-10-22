@@ -2,12 +2,53 @@ let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('../../bin/www');
 let expect = chai.expect;
+let datastore = require('../../models/books');
 
 chai.use(chaiHttp);
 let _ = require('lodash' );
 chai.use(require('chai-things'));
 
 describe('Books', function (){
+    /*beforeEach(function(){
+        while(datastore.length > 0) {
+            datastore.pop();
+        }
+        datastore.push(
+            {   name: 'INTRODUCTION TO QUANTUM COMPUTERS',
+                author: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',
+                publisher:'Southeast University Press',
+                category:'Computing Science',
+                upvotes:45}
+        );
+        datastore.push(
+            {   name: 'Building Web Sites All-in-One Desk Reference For Dummies',
+                author: 'Doug Sahlin',
+                publisher:'John Wiley & Sons',
+                category:'Computing Science',
+                upvotes:0}
+        );
+        datastore.push(
+            {   name: 'Digital Portrait Photography For Dummies',
+                author: 'Doug Sahlin',
+                publisher: 'John Wiley & Sons',
+                category:'Photography' ,
+                upvotes:0}
+        );
+        datastore.push(
+            {   name: 'Foundations for Analytics with Python',
+                author: 'Brownley, Clinton W.',
+                publisher: 'Southeast University Press',
+                category:'Computing Science',
+                upvotes:3}
+        );
+        datastore.push(
+            {   name: 'Multi-objective Decision Analysis' ,
+                author: "Brownley, Clinton W.",
+                publisher: "Business Expert Pr",
+                category:"software engineering",
+                upvotes:16}
+        );
+    });*/
     describe('GET /books',  () => {
         it('should return all the books in an array', function(done) {
             chai.request(server)
@@ -15,7 +56,7 @@ describe('Books', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(8);
+                    expect(res.body.length).to.equal(5);
                     let result = _.map(res.body, (book) => {
                         return {
                             name: book.name,
@@ -24,11 +65,11 @@ describe('Books', function (){
                             category:book.category,
                         }
                     });
-                    expect(result).to.include( { name: 'INTRODUCTION TO QUANTUM COMPUTERS',
+                    /*expect(result).to.include( { name: 'INTRODUCTION TO QUANTUM COMPUTERS',
                         author: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',
                         publisher:'Southeast University Press',
                         category:'Computing Science',
-                    } );
+                    } );*/
                     expect(result).to.include( { name: 'Building Web Sites All-in-One Desk Reference For Dummies',
                         author: 'Doug Sahlin',
                         publisher:'John Wiley & Sons',
@@ -44,10 +85,15 @@ describe('Books', function (){
                         publisher: 'Southeast University Press',
                         category:'Computing Science',
                     } );
-                    expect(result).to.include( {  name: 'Multi-objective Decision Analysis' ,
+                    expect(result).to.include( { name: 'Multi-objective Decision Analysis' ,
                         author: "Brownley, Clinton W.",
                         publisher: "Business Expert Pr",
                         category:"software engineering",
+                    } );
+                    expect(result).to.include( { name: 'Street Photography Now' ,
+                        author: " Sophie Howarth,Stephen McL",
+                        publisher: "Thames & Hudson",
+                        category:"Photography",
                     } );
                     done();
                 });
@@ -100,7 +146,7 @@ describe('Books', function (){
                     expect(book).to.include( { name: 'Foundations for Analytics with Python',
                         author: 'Brownley, Clinton W.',
                         publisher: 'Southeast University Press',
-                        category:'Computing Science', upvotes: 3  } );
+                        category:'Computing Science', upvotes: 10  } );
                     done();
                 });
         });
@@ -110,6 +156,71 @@ describe('Books', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(404);
                     expect(res.body).to.have.property('message','Book NOT Found!' ) ;
+                    done();
+                });
+        });
+    });
+    describe('DELETE /books/:id', () => {
+        it('should return delelte message and update datastore', function(done) {
+            chai.request(server)
+                .delete('/books/5bcd9f51c778f76ab49c36dd')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Book Successfully Deleted!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/books')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (book) => {
+                        return {
+                            name: book.name,
+                            author:book.author,
+                            publisher:book.publisher,
+                            category:book.category, };
+                    }  );
+                    /*expect(result).to.include( { name: 'INTRODUCTION TO QUANTUM COMPUTERS',
+                        author: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',
+                        publisher:'Southeast University Press',
+                        category:'Computing Science',
+
+                    } );*/
+                    expect(result).to.include( { name: 'Building Web Sites All-in-One Desk Reference For Dummies',
+                        author: 'Doug Sahlin',
+                        publisher:'John Wiley & Sons',
+                        category:'Computing Science',
+                    } );
+                    expect(result).to.include( { name: 'Digital Portrait Photography For Dummies',
+                        author: 'Doug Sahlin',
+                        publisher: 'John Wiley & Sons',
+                        category:'Photography' ,
+                    } );
+                    expect(result).to.include( { name: 'Foundations for Analytics with Python',
+                        author: 'Brownley, Clinton W.',
+                        publisher: 'Southeast University Press',
+                        category:'Computing Science',
+                    } );
+                    expect(result).to.include( { name: 'Multi-objective Decision Analysis' ,
+                        author: "Brownley, Clinton W.",
+                        publisher: "Business Expert Pr",
+                        category:"software engineering",
+                    } );
+                    expect(result).to.include( { name: 'Street Photography Now' ,
+                        author: " Sophie Howarth,Stephen McL",
+                        publisher: "Thames & Hudson",
+                        category:"Photography",
+                    } );
+                    done();
+                });
+        });
+        it('should return a 404 and a message for invalid book id', function(done) {
+            chai.request(server)
+                .delete('/books/1100001')
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    expect(res.body).to.have.property('message','Book NOT DELETED!' ) ;
                     done();
                 });
         });

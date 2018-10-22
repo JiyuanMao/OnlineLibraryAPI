@@ -42,7 +42,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1912" />
+          <entry key="js" value="1968" />
           <entry key="json" value="17" />
           <entry key="txt" value="30" />
           <entry key="www" value="1" />
@@ -51,7 +51,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="17" />
-          <entry key="JavaScript" value="1913" />
+          <entry key="JavaScript" value="1969" />
           <entry key="PLAIN_TEXT" value="30" />
         </counts>
       </usages-collector>
@@ -71,8 +71,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/routes/books-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="116" column="3" lean-forward="true" selection-start-line="116" selection-start-column="3" selection-end-line="116" selection-end-column="3" />
+            <state relative-caret-position="-810">
+              <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -1567,12 +1567,12 @@
       <workItem from="1539944758345" duration="2404000" />
       <workItem from="1539947609056" duration="1358000" />
       <workItem from="1540121656677" duration="7483000" />
-      <workItem from="1540196841986" duration="3849000" />
+      <workItem from="1540196841986" duration="5289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30327000" />
+    <option name="totallyTimeSpent" value="31767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1685,8 +1685,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/routes/books-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="116" column="3" lean-forward="true" selection-start-line="116" selection-start-column="3" selection-end-line="116" selection-end-column="3" />
+        <state relative-caret-position="-810">
+          <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
         </state>
       </provider>
     </entry>
