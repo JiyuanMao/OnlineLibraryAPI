@@ -1,0 +1,20 @@
+[
+  {
+    "upvotes": 0,
+    "_id": "5bc79f4e6e54d40398216461",
+    "name": "Building Web Sites All-in-One Desk Reference For Dummies",
+    "author": "Doug Sahlin",
+    "publisher": "John Wiley & Sons",
+    "category": "Computing Science",
+    "__v": 0
+  },
+  {
+    "upvotes": 0,
+    "_id": "5bc79fbf6e54d40398216463",
+    "name": "Foundations for Analytics with Python",
+    "author": "Brownley, Clinton W.",
+    "publisher": "Southeast University Press",
+    "category": "Computing Science",
+    "__v": 0
+  }
+]

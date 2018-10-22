@@ -1,0 +1,546 @@
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"zoe","password":"123456"}
+
+<> 2018-10-21T031735.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"john","password":"123456"}
+
+<> 2018-10-21T031725.200.json
+
+###
+
+DELETE http://localhost:3000/users/5bcc89ad85eb763974c93594
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"john","password":"123456"}
+
+<> 2018-10-21T031653.200.json
+
+###
+
+DELETE http://localhost:3000/users/5bcc899785eb763974c93593
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"john","password":"123456"}
+
+<> 2018-10-21T031636.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"john","passsword":"123456"}
+
+<> 2018-10-21T031405.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"zoe","passsword":"123456"}
+
+<> 2018-10-21T031343.200.json
+
+###
+
+PUT http://localhost:3000/comments/5bcc6cce83482d46acf0b4a8
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","username":"john","text":"it is very useful "}
+
+<> 2018-10-21T031205.200.json
+
+###
+
+PUT http://localhost:3000/comments/5bcc6c6783482d46acf0b4a7
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","username":"zoe","text":"it is very good,but need more practice "}
+
+<> 2018-10-21T031120.200.json
+
+###
+
+GET http://localhost:3000/comments/search/Foundations
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is very good,but need more practice "}
+
+<> 2018-10-21T012417.200.json
+
+###
+
+GET http://localhost:3000/comments/search/Foundations%20for%20Analytics%20with%20Python
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is very good,but need more practice "}
+
+<> 2018-10-21T012409.200.json
+
+###
+
+GET http://localhost:3000/comments/search/Foundations%20for%20Analytics%20with%20Python
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is very good,but need more practice "}
+
+<> 2018-10-21T012359.404.html
+
+###
+
+PUT http://localhost:3000/comments/5bcc6cce83482d46acf0b4a8
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is very good,but need more practice "}
+
+<> 2018-10-21T012105.200.json
+
+###
+
+PUT http://localhost:3000/comments/5bcc6cce83482d46acf0b4a8
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is good,but need more practice "}
+
+<> 2018-10-21T011819.200.json
+
+###
+
+GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
+
+<> 2018-10-21T011216.200.json
+
+###
+
+GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
+
+<> 2018-10-21T011205.404.html
+
+###
+
+GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
+
+<> 2018-10-21T011128.404.html
+
+###
+
+GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
+
+<> 2018-10-21T011108.404.html
+
+###
+
+POST http://localhost:3000/comments
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
+
+<> 2018-10-21T011054.200.json
+
+###
+
+POST http://localhost:3000/comments
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"bookname": "Foundations for Analytics with Python","text":"it is very useful"}
+
+<> 2018-10-21T010911.200.json
+
+###
+
+POST http://localhost:3000/comments
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python","text":"it is very useful"}
+
+<> 2018-10-21T010710.200.json
+
+###
+
+GET http://localhost:3000/books/searchcategory/sci
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122657.200.json
+
+###
+
+GET http://localhost:3000/books/searchauthor/clinton
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122644.200.json
+
+###
+
+GET http://localhost:3000/books/searchauthor/Clinton
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122638.200.json
+
+###
+
+GET http://localhost:3000/books/search/Analy
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122325.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122314.200.json
+
+###
+
+GET http://localhost:3000/books/search/Computing
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122305.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122232.200.json
+
+###
+
+GET http://localhost:3000/books/search/Vldimir%20I.
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122227.200.json
+
+###
+
+GET http://localhost:3000/books/search/Vldimir%20I.
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122114.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T122058.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+###
+
+GET http://localhost:3000/books/search/W.
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T121815.200.json
+
+###
+
+GET http://localhost:3000/books/search/Analy
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T121804.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T121731.200.json
+
+###
+
+GET http://localhost:3000/books/search/Ana
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T115930.200.json
+
+###
+
+GET http://localhost:3000/books/search/Analysis
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T115924.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-19T115908.200.json
+
+###
+
+POST http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+
+<> 2018-10-17T094655.200.json
+
+###
+
+POST http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Digital Portrait Photography For Dummies",   "author": "Doug Sahlin","publisher":"John Wiley & Sons","category":"Photography","upvotes":169}
+
+<> 2018-10-17T094601.200.json
+
+###
+
+POST http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Building Web Sites All-in-One Desk Reference For Dummies",   "author": "Doug Sahlin","publisher":"John Wiley & Sons","category":"Computing Science","upvotes":169}
+
+<> 2018-10-17T094502.200.json
+
+###
+
+POST http://localhost:3000/books/5bc79e486c4d860060ab6a7f
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Building Web Sites All-in-One Desk Reference For Dummies",   "author": "Doug Sahlin","publisher":"John Wiley & Sons","category":"Computing Science","upvotes":169}
+
+<> 2018-10-17T094448.404.html
+
+###
+
+PUT http://localhost:3000/books/5bc79e486c4d860060ab6a7f
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "INTRODUCTION TO QUANTUM COMPUTERS",   "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher":"Southeast University Press","category":"Computing Science","upvotes":45}
+
+<> 2018-10-17T094307.200.json
+
+###
+
+PUT http://localhost:3000/books/5bc79e486c4d860060ab6a7f
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "INTRODUCTION TO QUANTUM COMPUTERS",   "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher":"Southeast University Press","category":"Computing Science","upvotes":45}
+
+<> 2018-10-17T094255.404.html
+
+###
+
+PUT http://localhost:3000/books/5bc79e486c4d860060ab6a7f
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "INTRODUCTION TO QUANTUM COMPUTERS",   "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher":"Southeast University Press","category":"Computing Science","upvotes":45}
+
+<> 2018-10-17T094226.404.html
+
+###
+
+POST http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "INTRODUCTION TO QUANTUM COMPUTERS",   "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher":"Southeast University Press","category":"Computing Science"}
+
+<> 2018-10-17T094040.200.json
+
+###
+
+POST http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": 'INTRODUCTION TO QUANTUM COMPUTERS',   "author": 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',"publisher":'Southeast University Press',"category":"Computing Science"}
+
+<> 2018-10-17T093943.400.html
+
+###
+
+POST http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{“name”: 'INTRODUCTION TO QUANTUM COMPUTERS',   ”author“: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',"publisher":'Southeast University Press',"category":'Computing Science'}
+
+<> 2018-10-17T093822.400.html
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{“name”: 'INTRODUCTION TO QUANTUM COMPUTERS',   ”author“: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',"publisher":'Southeast University Press',"category":'Computing Science'}
+
+<> 2018-10-17T093541.400.html
+
+###
+
+POST http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{“name”: 'INTRODUCTION TO QUANTUM COMPUTERS',   ”author“: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',"publisher":'Southeast University Press',"category":'Computing Science'}
+
+<> 2018-10-17T093516.400.html
+
+###
+
