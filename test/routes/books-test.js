@@ -15,7 +15,7 @@ describe('Books', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(7);
+                    expect(res.body.length).to.equal(8);
                     let result = _.map(res.body, (book) => {
                         return {
                             name: book.name,
@@ -86,6 +86,30 @@ describe('Books', function (){
                         publisher: "Thames & Hudson",
                         category:"Photography",
                     } );
+                    done();
+                });
+        });
+    });
+    describe('PUT /books/:id/vote', () => {
+        it('should return a message and the book upvoted by 1', function(done) {
+            chai.request(server)
+                .put('/books/5bc79fbf6e54d40398216463/vote')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    let book = res.body.data ;
+                    expect(book).to.include( { name: 'Foundations for Analytics with Python',
+                        author: 'Brownley, Clinton W.',
+                        publisher: 'Southeast University Press',
+                        category:'Computing Science', upvotes: 3  } );
+                    done();
+                });
+        });
+        it('should return a 404 and a message for invalid book id', function(done) {
+            chai.request(server)
+                .put('/books/1100001/vote')
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    expect(res.body).to.have.property('message','Book NOT Found!' ) ;
                     done();
                 });
         });
