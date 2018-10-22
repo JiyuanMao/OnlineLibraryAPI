@@ -15,7 +15,7 @@ describe('Books', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(5);
+                    expect(res.body.length).to.equal(7);
                     let result = _.map(res.body, (book) => {
                         return {
                             name: book.name,
@@ -48,6 +48,43 @@ describe('Books', function (){
                         author: "Brownley, Clinton W.",
                         publisher: "Business Expert Pr",
                         category:"software engineering",
+                    } );
+                    done();
+                });
+        });
+    });
+    describe('POST /books', function () {
+        it('should return confirmation message and update datastore', function(done) {
+            let book = {
+                name: 'Street Photography Now' ,
+                author: " Sophie Howarth,Stephen McL",
+                publisher: "Thames & Hudson",
+                category:"Photography",
+            };
+            chai.request(server)
+                .post('/books')
+                .send(book)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Book Successfully Added!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/books')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (book) => {
+                        return { name: book.name,
+                            author:book.author,
+                            publisher:book.publisher,
+                            category:book.category,
+                        };
+                    }  );
+                    expect(result).to.include( { name: 'Street Photography Now' ,
+                        author: " Sophie Howarth,Stephen McL",
+                        publisher: "Thames & Hudson",
+                        category:"Photography",
                     } );
                     done();
                 });
