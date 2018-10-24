@@ -42,6 +42,43 @@ describe('Comments', function () {
                 });
         });
     });
+    describe.only('GET /comments/search/:bookname',  () => {
+        it('should return one or more comments you fuzzy search for', function(done) {
+            chai.request(server)
+                .get('/comments/search/analy')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.be.a('array');
+                    expect(res.body.length).to.equal(2);
+                    let result = _.map(res.body, (comment) => {
+                        return {
+                            text: comment.text,
+                            username: comment.username,
+                            bookname: comment.bookname,
+                        }
+                    });
+                    expect(result).to.include( {  text: "it is very useful ",
+                        bookname: "Foundations for Analytics with Python",
+                        username: "john"
+                    } );
+                    expect(result).to.include( {  text: "it is very good,but need more practice ",
+                        bookname: "Foundations for Analytics with Python",
+                        username: "zoe"
+                    } );
+
+                    done();
+                });
+        });
+        it('should return a 404 and a message for invalid keyword', function(done) {
+            chai.request(server)
+                .get('/comments/search/abc')
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    expect(res.body).to.have.property('message','Comment NOT Found!' ) ;
+                    done();
+                });
+        });
+    });
     describe('POST /comments', function () {
         it('should return confirmation message and update datastore', function (done) {
             let comment = {
@@ -94,7 +131,7 @@ describe('Comments', function () {
                 });
         });
     });
-    describe.only('DELETE /comments/:id', () => {
+    describe('DELETE /comments/:id', () => {
         it('should return delelte message and update datastore', function(done) {
             chai.request(server)
                 .delete('/comments/5bd09713d78fca279c9a7981')

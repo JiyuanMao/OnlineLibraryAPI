@@ -83,9 +83,10 @@ router.searchByName = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = {'bookname': {$regex:req.params.bookname,$options:'i'}};
     Comment.find(keyword, function (err, comment) {
-        if (err)
+        if (comment.length <= 0) {
+            res.status(404);
             res.json({message: 'Comment NOT Found!'});
-        else {
+        }else {
 
             res.send(JSON.stringify(comment,null,5));
         }
