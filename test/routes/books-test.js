@@ -9,46 +9,6 @@ let _ = require('lodash' );
 chai.use(require('chai-things'));
 
 describe('Books', function (){
-    /*beforeEach(function(){
-        while(datastore.length > 0) {
-            datastore.pop();
-        }
-        datastore.push(
-            {   name: 'INTRODUCTION TO QUANTUM COMPUTERS',
-                author: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',
-                publisher:'Southeast University Press',
-                category:'Computing Science',
-                upvotes:45}
-        );
-        datastore.push(
-            {   name: 'Building Web Sites All-in-One Desk Reference For Dummies',
-                author: 'Doug Sahlin',
-                publisher:'John Wiley & Sons',
-                category:'Computing Science',
-                upvotes:0}
-        );
-        datastore.push(
-            {   name: 'Digital Portrait Photography For Dummies',
-                author: 'Doug Sahlin',
-                publisher: 'John Wiley & Sons',
-                category:'Photography' ,
-                upvotes:0}
-        );
-        datastore.push(
-            {   name: 'Foundations for Analytics with Python',
-                author: 'Brownley, Clinton W.',
-                publisher: 'Southeast University Press',
-                category:'Computing Science',
-                upvotes:3}
-        );
-        datastore.push(
-            {   name: 'Multi-objective Decision Analysis' ,
-                author: "Brownley, Clinton W.",
-                publisher: "Business Expert Pr",
-                category:"software engineering",
-                upvotes:16}
-        );
-    });*/
     describe('GET /books',  () => {
         it('should return all the books in an array', function(done) {
             chai.request(server)

@@ -153,9 +153,10 @@ router.editBook = (req, res) => {
             "upvotes": req.body.upvotes
         }
         Book.findByIdAndUpdate(req.params.id, updatestr, function (err, book) {
-            if (err)
-                res.json({message: 'Book NOT Found!'});
-            else {
+            if (err){
+				res.status(404);
+                res.json({message: 'Book NOT Successfully edit!'});
+            }else {
 
                 res.json({message: 'Book Successfully UpDated!'});
             }

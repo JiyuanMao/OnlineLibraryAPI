@@ -150,7 +150,7 @@ router.editBook = (req, res) => {
             "author": req.body.author,
             "publisher": req.body.publisher,
             "category": req.body.category,
-            "upvotes": req.body.upvotes
+            "likes": req.body.likes
         }
         Book.findByIdAndUpdate(req.params.id, updatestr, function (err, book) {
             if (err){

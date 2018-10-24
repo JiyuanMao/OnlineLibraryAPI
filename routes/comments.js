@@ -22,9 +22,10 @@ router.findOne = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
     Comment.find({ "bookname" : req.params.bookname },function(err, comment) {
-        if (err)
-            res.json({ message: 'Comment NOT Found!', errmsg : err } );
-        else
+        if (comment.length <=0) {
+            res.status(404);
+            res.json({message: 'Comment NOT Found!'});
+        }else
             res.send(JSON.stringify(comment,null,5));
     });
 }
