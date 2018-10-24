@@ -41,4 +41,38 @@ describe('Comments', function (){
                 });
         });
     });
+    describe('POST /comments', function () {
+        it('should return confirmation message and update datastore', function(done) {
+            let comment = {
+                text: "it needs improvements",
+                bookname: "Foundations for Analytics with Python",
+                username: "justin"
+            };
+            chai.request(server)
+                .post('/comments')
+                .send(comment)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Comment Successfully Added!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/comments/Foundations for Analytics with Python')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (comment) => {
+                        return { text: comment.text,
+                            username:comment.username,
+                            bookname: comment.bookname,
+                        };
+                    }  );
+                    expect(result).to.include( { text: "it needs improvements",
+                        bookname: "Foundations for Analytics with Python",
+                        username: "justin"
+                    } );
+                    done();
+                });
+        });
+    });
 });
