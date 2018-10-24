@@ -78,7 +78,7 @@ describe('Comments', function () {
                 });
         });
     });
-    describe.only('PUT /comments/:id', () => {
+    describe('PUT /comments/:id', () => {
         it('should return the updated message', function (done) {
             let comment = {
                 text: "it needs improvements",
@@ -86,10 +86,51 @@ describe('Comments', function () {
                 username: "justin"
             };
             chai.request(server)
-                .put('/books/5bd09713d78fca279c9a7981')
+                .put('/comments/5bd09713d78fca279c9a7981')
                 .send(comment)
                 .end(function (err, res) {
                     expect(res).to.have.status(200);
+                    done();
+                });
+        });
+    });
+    describe.only('DELETE /comments/:id', () => {
+        it('should return delelte message and update datastore', function(done) {
+            chai.request(server)
+                .delete('/comments/5bd09713d78fca279c9a7981')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Comment Successfully Deleted!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/comments/Foundations for Analytics with Python')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (comment) => {
+                        return {
+                            text: comment.text,
+                            username: comment.username,
+                            bookname: comment.bookname, };
+                    }  );
+                    expect(result).to.include( {  text: "it is very useful ",
+                        bookname: "Foundations for Analytics with Python",
+                        username: "john"
+                    } );
+                    expect(result).to.include( {  text: "it is very good,but need more practice ",
+                        bookname: "Foundations for Analytics with Python",
+                        username: "zoe"
+                    } );
+                    done();
+                });
+        });
+        it('should return a 404 and a message for invalid comment id', function(done) {
+            chai.request(server)
+                .delete('/comments/1100001')
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    expect(res.body).to.have.property('message','Comment NOT DELETED!' ) ;
                     done();
                 });
         });
