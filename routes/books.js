@@ -167,9 +167,10 @@ router.searchByName = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = {'name': {$regex:req.params.name,$options:'i'}};
     Book.find(keyword, function (err, book) {
-        if (err)
-            res.json({message: 'Book NOT Found!'});
-        else {
+        if (book.length <= 0){
+			res.status(404);
+            res.json({message: 'Book NOT Found!'})
+        }else {
 
             res.send(JSON.stringify(book,null,5));
         }

@@ -134,10 +134,10 @@ describe('Books', function (){
                 });
         }); 
     });
-	/*describe('GET /books/searchname/:name',  () => {
+    describe('GET /books/searchname/:name',  () => {
         it('should return one or more books you fuzzy search for', function(done) {
             chai.request(server)
-                .get('/books/5bcf6c50e2df0f50e01d2391')
+                .get('/books/searchname/analy')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
@@ -150,16 +150,25 @@ describe('Books', function (){
                             category:book.category,
                         }
                     });
-                    expect(result).to.include( { name: 'INTRODUCTION TO QUANTUM COMPUTERS',
-                        author: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',
-                        publisher:'Southeast University Press',
+                    expect(result).to.include( { name: 'Foundations for Analytics with Python',
+                        author: 'Brownley, Clinton W.',
+                        publisher: 'Southeast University Press',
                         category:'Computing Science',
                     } );
                    
                     done();
                 });
         });
-    });*/
+		it('should return a 404 and a message for invalid keyword', function(done) {
+            chai.request(server)
+                .get('/books/searchname/abc')
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    expect(res.body).to.have.property('message','Book NOT Found!' ) ;
+                    done();
+                });
+        }); 
+    });
     describe('POST /books', function () {
         it('should return confirmation message and update datastore', function(done) {
             let book = {
