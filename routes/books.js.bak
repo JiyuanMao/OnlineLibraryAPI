@@ -38,9 +38,8 @@ router.findOne = (req, res) => {
         if (err){
 			res.status(404);
             res.json({ message: 'Book NOT Found!', errmsg : err } )
-        }else{
+        }else
             res.send(JSON.stringify(book,null,5));
-		}
     });
 }
 

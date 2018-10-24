@@ -99,7 +99,7 @@ describe('Books', function (){
                 });
         });
     });
-	describe('GET /books/:id',  () => {
+	describe.only('GET /books/:id',  () => {
         it('should return one book you search for', function(done) {
             chai.request(server)
                 .get('/books/5bcf6c50e2df0f50e01d2391')
