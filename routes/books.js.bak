@@ -63,19 +63,19 @@ router.addBook = (req, res) => {
     });
 }
 
-router.incrementUpvotes = (req, res) => {
+router.incrementLikes = (req, res) => {
 
     Book.findById(req.params.id, function(err,book) {
         if (err) {
             res.status(404);  //new
             res.json({message: 'Book NOT Found!', errmsg: err})
         }else {
-            book.upvotes += 1;
+            book.likes += 1;
             book.save(function (err) {
                 if (err) {
-                    res.json({message: 'Book NOT Upvoted!', errmsg: err})
+                    res.json({message: 'Book NOT Successfully Liked!', errmsg: err})
                 }else {
-                    res.json({message: 'Book Successfully Upvoted!', data: book});
+                    res.json({message: 'Book Successfully Liked!', data: book});
                 }
             });
         }
@@ -168,7 +168,7 @@ router.searchByName = (req, res) => {
     var keyword = {'name': {$regex:req.params.name,$options:'i'}};
     Book.find(keyword, function (err, book) {
         if (book.length <= 0){
-			res.status(200);
+			res.status(404);
             res.json({message: 'Book NOT Found!'})
         }else {
 

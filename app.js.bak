@@ -42,7 +42,7 @@ app.post('/comments',comments.addComment);
 app.post('/users',users.addUser);
 
 app.put('/books/:id', books.editBook);
-app.put('/books/:id/like', books.incrementLikes);
+app.put('/books/:id/vote', books.incrementUpvotes);
 app.put('/comments/:id', comments.editComment);
 app.put('/users/:id', users.editUser);
 

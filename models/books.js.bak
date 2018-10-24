@@ -50,7 +50,7 @@ let BookSchema = new mongoose.Schema({
         author: String,
         publisher: String,
         category: String,
-        likes: {type: Number, default: 0}
+        upvotes: {type: Number, default: 0}
     },
     { collection: 'booksdb' });
 
