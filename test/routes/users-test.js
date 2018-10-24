@@ -38,4 +38,19 @@ describe('Users', function () {
                 });
         });
     });
+    describe.only('PUT /users/:id', () => {
+        it('should return the updated message', function (done) {
+            let user = {
+                username: "justin",
+                passward: "654321"
+            };
+            chai.request(server)
+                .put('/users/5bd0b10e0ab43a55c8d37787')
+                .send(user)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    done();
+                });
+        });
+    });
 })

@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.get('/users', users.findAll);
+
 app.get('/books', books.findAll);
 app.get('/books/:id', books.findOne);
 app.get('/books/:publisher', books.findByPublisher);
@@ -37,7 +37,7 @@ app.get('/books/searchpublisher/:publisher', books.searchByPublisher);
 app.get('/books/searchcategory/:category', books.searchByCategory);
 app.get('/comments/:bookname', comments.findOne);
 app.get('/comments/search/:bookname', comments.searchByName);
-
+app.get('/users', users.findAll);
 
 app.post('/books',books.addBook);
 app.post('/comments',comments.addComment);
