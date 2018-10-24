@@ -38,7 +38,7 @@ describe('Users', function () {
                 });
         });
     });
-    describe.only('PUT /users/:id', () => {
+    describe('PUT /users/:id', () => {
         it('should return the updated message', function (done) {
             let user = {
                 username: "justin",
@@ -49,6 +49,44 @@ describe('Users', function () {
                 .send(user)
                 .end(function (err, res) {
                     expect(res).to.have.status(200);
+                    done();
+                });
+        });
+    });
+    describe.only('DELETE /users/:id', () => {
+        it('should return delelte message and update datastore', function(done) {
+            chai.request(server)
+                .delete('/users/5bd0dab9e1040f60f04d57b8')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('User Successfully Deleted!' );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get('/users')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (user) => {
+                        return {
+                            username: user.username,
+                            password: user.password, };
+                    }  );
+                    expect(result).to.include( {  username: "zoe",
+                        password: "123456"
+                    } );
+                    expect(result).to.include( {  username: "john",
+                        password: "123456"
+                    } );
+                    done();
+                });
+        });
+        it('should return a 404 and a message for invalid user id', function(done) {
+            chai.request(server)
+                .delete('/users/1100001')
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    expect(res.body).to.have.property('message','User NOT DELETED!' ) ;
                     done();
                 });
         });

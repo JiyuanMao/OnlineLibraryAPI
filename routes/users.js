@@ -69,7 +69,7 @@ router.editUser = (req, res) => {
         "password": req.body.password,
     }
     User.findByIdAndUpdate(req.params.id, updatestr, function (err, user) {
-        if (err)
+        if (user.length <= 0)
             res.json({message: 'User NOT Found!'});
         else {
 

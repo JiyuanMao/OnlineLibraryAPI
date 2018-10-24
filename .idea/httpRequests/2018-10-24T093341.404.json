@@ -1,0 +1,11 @@
+{
+  "message": "User NOT DELETED!",
+  "errmsg": {
+    "message": "Cast to ObjectId failed for value \"1001\" at path \"_id\" for model \"User\"",
+    "name": "CastError",
+    "stringValue": "\"1001\"",
+    "kind": "ObjectId",
+    "value": "1001",
+    "path": "_id"
+  }
+}

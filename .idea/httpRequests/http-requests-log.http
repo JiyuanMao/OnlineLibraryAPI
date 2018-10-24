@@ -1,3 +1,14 @@
+DELETE http://localhost:3000/users/1001
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"zoe","password":"123456"}
+
+<> 2018-10-24T093341.404.json
+
+###
+
 GET http://localhost:3000/users
 Accept: */*
 Cache-Control: no-cache
@@ -530,17 +541,6 @@ Content-Type: application/json
 {"name": 'INTRODUCTION TO QUANTUM COMPUTERS',   "author": 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',"publisher":'Southeast University Press',"category":"Computing Science"}
 
 <> 2018-10-17T093943.400.html
-
-###
-
-POST http://localhost:3000/books
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{“name”: 'INTRODUCTION TO QUANTUM COMPUTERS',   ”author“: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',"publisher":'Southeast University Press',"category":'Computing Science'}
-
-<> 2018-10-17T093822.400.html
 
 ###
 
