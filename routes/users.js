@@ -19,10 +19,19 @@ db.once('open', function () {
 });
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
   res.send('respond with a resource');
-});
+});*/
+router.findAll = (req, res) => {
+    // Return a JSON representation of our list
+    res.setHeader('Content-Type', 'application/json');
+    User.find(function(err, users) {
+        if (err)
+            res.send(err);
 
+        res.send(JSON.stringify(users,null,5));
+    });
+}
 router.addUser = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');

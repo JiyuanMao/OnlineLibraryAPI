@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "5bcc8a7585eb763974c93595",
+    "username": "john",
+    "password": "123456",
+    "__v": 0
+  },
+  {
+    "_id": "5bcc8a7f85eb763974c93596",
+    "username": "zoe",
+    "password": "123456",
+    "__v": 0
+  },
+  {
+    "_id": "5bd0b091f4ace73204fba58f",
+    "username": "justin",
+    "password": "123456",
+    "__v": 0
+  },
+  {
+    "_id": "5bd0b10e0ab43a55c8d37787",
+    "username": "justin",
+    "password": "123456",
+    "__v": 0
+  },
+  {
+    "_id": "5bd0b1fd81e7392cac3b2c63",
+    "username": "justin",
+    "password": "123456",
+    "__v": 0
+  },
+  {
+    "_id": "5bd0d3c0793a135cecd6c211",
+    "username": "justin",
+    "password": "123456",
+    "__v": 0
+  }
+]

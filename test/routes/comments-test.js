@@ -42,7 +42,7 @@ describe('Comments', function () {
                 });
         });
     });
-    describe.only('GET /comments/search/:bookname',  () => {
+    describe('GET /comments/search/:bookname',  () => {
         it('should return one or more comments you fuzzy search for', function(done) {
             chai.request(server)
                 .get('/comments/search/analy')
