@@ -42,7 +42,7 @@ router.findOne = (req, res) => {
     Book.find({ "_id" : req.params.id },function(err, book) {
         if (err){
 			res.status(404);
-            res.json({ message: 'Book NOT Found!', errmsg : err } )
+            res.json({ message: 'Book NOT Found!'} )
         }else{
             res.send(JSON.stringify(book,null,5));
 		}
@@ -104,9 +104,9 @@ router.findByAuthor = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     Book.find({ "author" : req.params.author },function(err, book) {
-        if (err) {
+        if (book.length <=0) {
             // return a suitable error message
-            res.json({message: 'Book NOT Found!', errmsg: err})
+            res.json({message: 'Book NOT Found!'})
         }else{
             // return the book
             res.send(JSON.stringify(book,null,5));
@@ -122,9 +122,9 @@ router.findByPublisher = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     Book.find({ "publisher" : req.params.publisher },function(err, book) {
-        if (err)
+        if (book.length <=0)
         // return a suitable error message
-            res.json({ message: 'Book NOT Found!', errmsg : err } );
+            res.json({ message: 'Book NOT Found!'} );
         else
         // return the book
             res.send(JSON.stringify(book,null,5));
@@ -137,9 +137,9 @@ router.findByCategory = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     Book.find({ "category" : req.params.category },function(err, book) {
-        if (err)
+        if (book.length <=0)
         // return a suitable error message
-            res.json({ message: 'Book NOT Found!', errmsg : err } );
+            res.json({ message: 'Book NOT Found!'} );
         else
         // return the book
             res.send(JSON.stringify(book,null,5));
@@ -150,20 +150,29 @@ router.findByCategory = (req, res) => {
 router.editBook = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
-        var updatestr = {
+        /*var updatestr = {
             "name": req.body.name,
             "author": req.body.author,
             "publisher": req.body.publisher,
             "category": req.body.category,
             "likes": req.body.likes
-        }
-        Book.findByIdAndUpdate(req.params.id, updatestr, function (err, book) {
-            if (err){
-				res.status(404);
-                res.json({message: 'Book NOT Successfully edit!'});
+        }*/
+        Book.findById(req.params.id, function (err, book) {
+            if (err) {
+                res.status(404);
+                res.json({message: 'Book NOT Found!'});
             }else {
-
-                res.json({message: 'Book Successfully UpDated!'});
+                book.name = req.body.name;
+                book.author = req.body.author;
+                book.publisher = req.body.publisher;
+                book.category = req.body.category;
+                book.likes= req.body.likes;
+                book.save(function(){
+                    if(err)
+                        res.json({message: 'Book NOT UpDated!',errmsg:err});
+                    else
+                        res.json({message: 'Book Successfully UpDated!',data:book});
+                });
             }
         });
 
@@ -187,7 +196,7 @@ router.searchByAuthor = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = {'author': {$regex:req.params.author,$options:'i'}};
     Book.find(keyword, function (err, book) {
-        if (err)
+        if (book.length <= 0)
             res.json({message: 'Book NOT Found!'});
         else {
 
@@ -200,7 +209,7 @@ router.searchByPublisher = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = {'publisher': {$regex:req.params.publisher,$options:'i'}};
     Book.find(keyword, function (err, book) {
-        if (err)
+        if (book.length <= 0)
             res.json({message: 'Book NOT Found!'});
         else {
 
@@ -213,7 +222,7 @@ router.searchByCategory = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = {'category': {$regex:req.params.category,$options:'i'}};
     Book.find(keyword, function (err, book) {
-        if (err)
+        if (book.length <= 0)
             res.json({message: 'Book NOT Found!'});
         else {
 

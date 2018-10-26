@@ -64,16 +64,23 @@ router.deleteUser = (req, res) => {
 router.editUser = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
-    var updatestr = {
+    /*var updatestr = {
         "username": req.body.username,
         "password": req.body.password,
-    }
-    User.findByIdAndUpdate(req.params.id, updatestr, function (err, user) {
-        if (user.length <= 0)
+    }*/
+    User.findById(req.params.id,  function (err, user) {
+        if (err) {
+            res.status(404);
             res.json({message: 'User NOT Found!'});
-        else {
-
-            res.json({message: 'User Successfully UpDated!'});
+        }else {
+            user.username = req.body.username;
+            user.password = req.body.password;
+            user.save(function(){
+                if(err)
+                    res.json({message: 'User NOT UpDated!',errmsg:err});
+                else
+                    res.json({message: 'User Successfully UpDated!',data:user});
+            });
         }
     });
 

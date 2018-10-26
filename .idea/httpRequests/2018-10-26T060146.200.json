@@ -1,0 +1,9 @@
+{
+  "message": "User Successfully UpDated!",
+  "data": {
+    "_id": "5bd3485597136929747e21e2",
+    "username": "justin",
+    "password": "654321",
+    "__v": 0
+  }
+}

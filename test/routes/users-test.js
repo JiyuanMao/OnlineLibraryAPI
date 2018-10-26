@@ -53,7 +53,7 @@ describe('Users', function () {
                 });
         });
     });
-    describe.only('DELETE /users/:id', () => {
+    describe('DELETE /users/:id', () => {
         it('should return delelte message and update datastore', function(done) {
             chai.request(server)
                 .delete('/users/5bcc8a7f85eb763974c93596')

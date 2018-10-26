@@ -1,0 +1,12 @@
+{
+  "message": "Book Successfully Liked!",
+  "data": {
+    "likes": 1,
+    "_id": "5bd3472897136929747e21e0",
+    "name": "'INTRODUCTION TO QUANTUM COMPUTERS",
+    "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman",
+    "publisher": "Southeast University Press",
+    "category": "Computing",
+    "__v": 0
+  }
+}

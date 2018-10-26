@@ -1,0 +1,20 @@
+[
+  {
+    "likes": 0,
+    "_id": "5bcf6ca3e2df0f50e01d2392",
+    "name": "Building Web Sites All-in-One Desk Reference For Dummies",
+    "author": "Doug Sahlin",
+    "publisher": "John Wiley & Sons",
+    "category": "Computing Science",
+    "__v": 0
+  },
+  {
+    "likes": 0,
+    "_id": "5bcf6ce5e2df0f50e01d2393",
+    "name": "Digital Portrait Photography For Dummies",
+    "author": "Doug Sahlin",
+    "publisher": "John Wiley & Sons",
+    "category": "Photography",
+    "__v": 0
+  }
+]

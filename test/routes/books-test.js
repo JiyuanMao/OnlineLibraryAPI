@@ -132,10 +132,10 @@ describe('Books', function (){
     describe('POST /books', function () {
         it('should return confirmation message and update datastore', function(done) {
             let book = {
-                name: 'Street Photography Now' ,
-                author: " Sophie Howarth,Stephen McL",
-                publisher: "Thames & Hudson",
-                category:"Photography",
+                name: 'Multi-objective Decision Analysis' ,
+                author: "Brownley, Clinton W.",
+                publisher: "Business Expert Pr",
+                category:"software engineering",
             };
             chai.request(server)
                 .post('/books')
@@ -157,10 +157,10 @@ describe('Books', function (){
                             category:book.category,
                         };
                     }  );
-                    expect(result).to.include( { name: 'Street Photography Now' ,
-                        author: " Sophie Howarth,Stephen McL",
-                        publisher: "Thames & Hudson",
-                        category:"Photography",
+                    expect(result).to.include( { name: 'Multi-objective Decision Analysis' ,
+                        author: "Brownley, Clinton W.",
+                        publisher: "Business Expert Pr",
+                        category:"software engineering",
                     } );
                     done();
                 });
@@ -176,7 +176,7 @@ describe('Books', function (){
                     expect(book).to.include( { name: 'Foundations for Analytics with Python',
                         author: 'Brownley, Clinton W.',
                         publisher: 'Southeast University Press',
-                        category:'Computing Science', likes: 11  } );
+                        category:'Computing Science', likes: 12  } );
                     done();
                 });
         });
@@ -195,7 +195,7 @@ describe('Books', function (){
 			let book ={ name: 'Foundations for Analytics with Python',
                         author: 'Brownley, Clinton W.',
                         publisher: 'Southeast University Press',
-                        category:'Computing Science&Software Engineering', likes: 11  };
+                        category:'Computing Science&Software Engineering', likes: 12  };
             chai.request(server)
                 .put('/books/5bcf6d42e2df0f50e01d2394')
 				.send(book)
@@ -222,7 +222,7 @@ describe('Books', function (){
     describe('DELETE /books/:id', () => {
         it('should return delelte message and update datastore', function(done) {
             chai.request(server)
-                .delete('/books/5bcf6c50e2df0f50e01d2391')
+                .delete('/books/5bd30e2f536aaf479c6cf735')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('message').equal('Book Successfully Deleted!' );
@@ -259,7 +259,7 @@ describe('Books', function (){
                     expect(result).to.include( { name: 'Foundations for Analytics with Python',
                         author: 'Brownley, Clinton W.',
                         publisher: 'Southeast University Press',
-                        category:'Computing Science',
+                        category:'Computing Science&Software Engineering',
                     } );
                     /*expect(result).to.include( { name: 'Multi-objective Decision Analysis' ,
                         author: "Brownley, Clinton W.",

@@ -63,17 +63,25 @@ router.deleteComment = (req, res) => {
 router.editComment = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
-    var updatestr = {
+    /*var updatestr = {
         "text": req.body.text,
         "username": req.body.username,
         "bookname": req.body.bookname,
-    }
-    Comment.findByIdAndUpdate(req.params.id, updatestr, function (err, comment) {
-        if (err)
+    }*/
+    Comment.findById(req.params.id, function (err, comment) {
+        if (err) {
+            res.status(404);
             res.json({message: 'Comment NOT Found!'});
-        else {
-
-            res.json({message: 'Comment Successfully UpDated!'});
+        }else {
+            comment.text = req.body.text;
+            comment.username = req.body.username;
+            comment.bookname = req.body.bookname;
+            comment.save(function(){
+                if(err)
+                    res.json({message: 'Comment NOT UpDated!',errmsg:err});
+                else
+                    res.json({message: 'Comment Successfully UpDated!',data:comment});
+            });
         }
     });
 

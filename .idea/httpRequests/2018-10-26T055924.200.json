@@ -1,0 +1,10 @@
+{
+  "message": "Comment Successfully Added!",
+  "data": {
+    "_id": "5bd347ec97136929747e21e1",
+    "text": "it needs improvements",
+    "username": "justin",
+    "bookname": "Foundations for Analytics with Python",
+    "__v": 0
+  }
+}

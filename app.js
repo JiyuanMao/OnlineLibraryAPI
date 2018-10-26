@@ -28,9 +28,9 @@ app.use('/users', usersRouter);
 
 app.get('/books', books.findAll);
 app.get('/books/:id', books.findOne);
-app.get('/books/:publisher', books.findByPublisher);
-app.get('/books/:category', books.findByCategory);
-app.get('/books/:author', books.findByAuthor);
+app.get('/books/bpublisher/:publisher', books.findByPublisher);
+app.get('/books/bcategory/:category', books.findByCategory);
+app.get('/books/bauthor/:author', books.findByAuthor);
 app.get('/books/searchname/:name', books.searchByName);
 app.get('/books/searchauthor/:author', books.searchByAuthor);
 app.get('/books/searchpublisher/:publisher', books.searchByPublisher);
