@@ -25,11 +25,11 @@ describe('Books', function (){
                             category:book.category,
                         }
                     });
-                    expect(result).to.include( { name: 'INTRODUCTION TO QUANTUM COMPUTERS',
+                    /*expect(result).to.include( { name: 'INTRODUCTION TO QUANTUM COMPUTERS',
                         author: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',
                         publisher:'Southeast University Press',
                         category:'Computing Science',
-                    } );
+                    } );*/
                     expect(result).to.include( { name: 'Building Web Sites All-in-One Desk Reference For Dummies',
                         author: 'Doug Sahlin',
                         publisher:'John Wiley & Sons',
@@ -45,11 +45,11 @@ describe('Books', function (){
                         publisher: 'Southeast University Press',
                         category:'Computing Science',
                     } );
-                    /*expect(result).to.include( { name: 'Multi-objective Decision Analysis' ,
+                    expect(result).to.include( { name: 'Multi-objective Decision Analysis' ,
                         author: "Brownley, Clinton W.",
                         publisher: "Business Expert Pr",
                         category:"software engineering",
-                    } );*/
+                    } );
                     /*expect(result).to.include( { name: 'Street Photography Now' ,
                         author: " Sophie Howarth,Stephen McL",
                         publisher: "Thames & Hudson",
@@ -62,7 +62,7 @@ describe('Books', function (){
 	describe('GET /books/:id',  () => {
         it('should return one book you search for', function(done) {
             chai.request(server)
-                .get('/books/5bcf6c50e2df0f50e01d2391')
+                .get('/books/5bcf6ca3e2df0f50e01d2392')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
@@ -75,9 +75,9 @@ describe('Books', function (){
                             category:book.category,
                         }
                     });
-                    expect(result).to.include( { name: 'INTRODUCTION TO QUANTUM COMPUTERS',
-                        author: 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',
-                        publisher:'Southeast University Press',
+                    expect(result).to.include( { name: 'Building Web Sites All-in-One Desk Reference For Dummies',
+                        author: 'Doug Sahlin',
+                        publisher:'John Wiley & Sons',
                         category:'Computing Science',
                     } );
                    
@@ -97,7 +97,7 @@ describe('Books', function (){
     describe('GET /books/searchname/:name',  () => {
         it('should return one or more books you fuzzy search for', function(done) {
             chai.request(server)
-                .get('/books/searchname/analy')
+                .get('/books/searchname/digital')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
@@ -110,10 +110,10 @@ describe('Books', function (){
                             category:book.category,
                         }
                     });
-                    expect(result).to.include( { name: 'Foundations for Analytics with Python',
-                        author: 'Brownley, Clinton W.',
-                        publisher: 'Southeast University Press',
-                        category:'Computing Science',
+                    expect(result).to.include( { name: 'Digital Portrait Photography For Dummies',
+                        author: 'Doug Sahlin',
+                        publisher: 'John Wiley & Sons',
+                        category:'Photography' ,
                     } );
                    
                     done();
@@ -169,14 +169,14 @@ describe('Books', function (){
     describe('PUT /books/:id/like', () => {
         it('should return a message and the book liked by 1', function(done) {
             chai.request(server)
-                .put('/books/5bc79fbf6e54d40398216463/like')
+                .put('/books/5bcf6d42e2df0f50e01d2394/like')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     let book = res.body.data ;
                     expect(book).to.include( { name: 'Foundations for Analytics with Python',
                         author: 'Brownley, Clinton W.',
                         publisher: 'Southeast University Press',
-                        category:'Computing Science', likes: 10  } );
+                        category:'Computing Science', likes: 11  } );
                     done();
                 });
         });
@@ -195,7 +195,7 @@ describe('Books', function (){
 			let book ={ name: 'Foundations for Analytics with Python',
                         author: 'Brownley, Clinton W.',
                         publisher: 'Southeast University Press',
-                        category:'Computing Science', likes: 10  };
+                        category:'Computing Science&Software Engineering', likes: 11  };
             chai.request(server)
                 .put('/books/5bcf6d42e2df0f50e01d2394')
 				.send(book)
@@ -222,7 +222,7 @@ describe('Books', function (){
     describe('DELETE /books/:id', () => {
         it('should return delelte message and update datastore', function(done) {
             chai.request(server)
-                .delete('/books/5bcd9f51c778f76ab49c36dd')
+                .delete('/books/5bcf6c50e2df0f50e01d2391')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('message').equal('Book Successfully Deleted!' );
@@ -261,11 +261,11 @@ describe('Books', function (){
                         publisher: 'Southeast University Press',
                         category:'Computing Science',
                     } );
-                    expect(result).to.include( { name: 'Multi-objective Decision Analysis' ,
+                    /*expect(result).to.include( { name: 'Multi-objective Decision Analysis' ,
                         author: "Brownley, Clinton W.",
                         publisher: "Business Expert Pr",
                         category:"software engineering",
-                    } );
+                    } );*/
                     expect(result).to.include( { name: 'Street Photography Now' ,
                         author: " Sophie Howarth,Stephen McL",
                         publisher: "Thames & Hudson",

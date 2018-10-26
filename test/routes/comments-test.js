@@ -28,6 +28,10 @@ describe('Comments', function () {
                         bookname: "Foundations for Analytics with Python",
                         username: "john"
                     });
+                    expect(result).to.include( {  text: "it is very good,but need more practice ",
+                        bookname: "Foundations for Analytics with Python",
+                        username: "zoe"
+                    } );
 
                     done();
                 });
@@ -118,12 +122,12 @@ describe('Comments', function () {
     describe('PUT /comments/:id', () => {
         it('should return the updated message', function (done) {
             let comment = {
-                text: "it needs improvements",
+                text: "it is very useful",
                 bookname: "Digital Portrait Photography For Dummies",
-                username: "justin"
+                username: "john"
             };
             chai.request(server)
-                .put('/comments/5bd09713d78fca279c9a7981')
+                .put('/comments/5bcc6cce83482d46acf0b4a8')
                 .send(comment)
                 .end(function (err, res) {
                     expect(res).to.have.status(200);
@@ -134,7 +138,7 @@ describe('Comments', function () {
     describe('DELETE /comments/:id', () => {
         it('should return delelte message and update datastore', function(done) {
             chai.request(server)
-                .delete('/comments/5bd09713d78fca279c9a7981')
+                .delete('/comments/5bcc6c6783482d46acf0b4a7')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('message').equal('Comment Successfully Deleted!' );
@@ -151,14 +155,14 @@ describe('Comments', function () {
                             username: comment.username,
                             bookname: comment.bookname, };
                     }  );
-                    expect(result).to.include( {  text: "it is very useful ",
+                    expect(result).to.include( {  text: "it needs improvements",
                         bookname: "Foundations for Analytics with Python",
-                        username: "john"
+                        username: "justin"
                     } );
-                    expect(result).to.include( {  text: "it is very good,but need more practice ",
+                    /*expect(result).to.include( {  text: "it is very good,but need more practice ",
                         bookname: "Foundations for Analytics with Python",
                         username: "zoe"
-                    } );
+                    } );*/
                     done();
                 });
         });

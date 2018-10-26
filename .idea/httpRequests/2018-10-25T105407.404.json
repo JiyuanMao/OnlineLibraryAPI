@@ -1,0 +1,11 @@
+{
+  "message": "Book NOT Found!",
+  "errmsg": {
+    "message": "Cast to ObjectId failed for value \"5bcf6d42e\" at path \"_id\" for model \"Book\"",
+    "name": "CastError",
+    "stringValue": "\"5bcf6d42e\"",
+    "kind": "ObjectId",
+    "value": "5bcf6d42e",
+    "path": "_id"
+  }
+}

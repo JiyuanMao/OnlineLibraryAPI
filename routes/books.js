@@ -3,10 +3,14 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 var Book = require('../models/books');
-
+/*var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+    replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } },
+    user: 'Jiyuan Mao', pass: '1997914mjy' };*/
 
 var mongodbUri ='mongodb://booksdb:1997914mjy@ds125683.mlab.com:25683/onlinebooksdb';
 //mongoose.connect('mongodb://localhost:27017/booksdb');
+//var mongodbUri = 'mongodb://ds141623.mongolab.com:41623/heroku_9tqwthbf';
+//var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 mongoose.connect(mongodbUri);
 let db = mongoose.connection;
 
@@ -26,6 +30,7 @@ router.findAll = (req, res) => {
             res.send(err);
 
         res.send(JSON.stringify(books,null,5));
+        //console.log(books.sort());
     });
 }
 

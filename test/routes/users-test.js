@@ -41,11 +41,11 @@ describe('Users', function () {
     describe('PUT /users/:id', () => {
         it('should return the updated message', function (done) {
             let user = {
-                username: "justin",
+                username: "theo",
                 passward: "654321"
             };
             chai.request(server)
-                .put('/users/5bd0b10e0ab43a55c8d37787')
+                .put('/users/5bd1d9c53e2de931cc372eb9')
                 .send(user)
                 .end(function (err, res) {
                     expect(res).to.have.status(200);
@@ -56,7 +56,7 @@ describe('Users', function () {
     describe.only('DELETE /users/:id', () => {
         it('should return delelte message and update datastore', function(done) {
             chai.request(server)
-                .delete('/users/5bd0dab9e1040f60f04d57b8')
+                .delete('/users/5bcc8a7f85eb763974c93596')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('message').equal('User Successfully Deleted!' );
@@ -72,10 +72,17 @@ describe('Users', function () {
                             username: user.username,
                             password: user.password, };
                     }  );
-                    expect(result).to.include( {  username: "zoe",
+                    /*expect(result).to.include( {  username: "zoe",
+                        password: "123456"
+                    } );*/
+
+                    expect(result).to.include( {  username: "john",
                         password: "123456"
                     } );
-                    expect(result).to.include( {  username: "john",
+                    expect(result).to.include( {  username: "theo",
+                        password: "654321"
+                    } );
+                    expect(result).to.include( {  username: "justin",
                         password: "123456"
                     } );
                     done();

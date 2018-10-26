@@ -1,11 +1,33 @@
-DELETE http://localhost:3000/users/1001
+DELETE http://localhost:3000/users/5bd23ce6fa0287284c7141a3
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"username":"zoe","password":"123456"}
+{"username":"justin","password":"654321"}
 
-<> 2018-10-24T093341.404.json
+<> 2018-10-25T110055.200.json
+
+###
+
+PUT http://localhost:3000/users/5bd23ce6fa0287284c7141a3
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T110040.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"123456"}
+
+<> 2018-10-25T110006.200.json
 
 ###
 
@@ -14,207 +36,31 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"username":"zoe","password":"123456"}
+{"text": "it needs improvements","bookname": "Digital Portrait Photography For Dummies","username": "justin"}
 
-<> 2018-10-24T092203.200.json
+<> 2018-10-25T105945.200.json
 
 ###
 
-GET http://localhost:3000/users
+DELETE http://localhost:3000/comments/5bd23c6efa0287284c7141a2
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"username":"zoe","password":"123456"}
+{"text": "it needs improvements","bookname": "Digital Portrait Photography For Dummies","username": "justin"}
 
-<> 2018-10-24T092117.200.html
+<> 2018-10-25T105915.200.json
 
 ###
 
-POST http://localhost:3000/users
+PUT http://localhost:3000/comments/5bd23c6efa0287284c7141a2
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"username":"zoe","password":"123456"}
+{"text": "it needs improvements","bookname": "Digital Portrait Photography For Dummies","username": "justin"}
 
-<> 2018-10-21T031735.200.json
-
-###
-
-POST http://localhost:3000/users
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"username":"john","password":"123456"}
-
-<> 2018-10-21T031725.200.json
-
-###
-
-DELETE http://localhost:3000/users/5bcc89ad85eb763974c93594
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"username":"john","password":"123456"}
-
-<> 2018-10-21T031653.200.json
-
-###
-
-DELETE http://localhost:3000/users/5bcc899785eb763974c93593
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"username":"john","password":"123456"}
-
-<> 2018-10-21T031636.200.json
-
-###
-
-POST http://localhost:3000/users
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"username":"john","passsword":"123456"}
-
-<> 2018-10-21T031405.200.json
-
-###
-
-POST http://localhost:3000/users
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"username":"zoe","passsword":"123456"}
-
-<> 2018-10-21T031343.200.json
-
-###
-
-PUT http://localhost:3000/comments/5bcc6cce83482d46acf0b4a8
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","username":"john","text":"it is very useful "}
-
-<> 2018-10-21T031205.200.json
-
-###
-
-PUT http://localhost:3000/comments/5bcc6c6783482d46acf0b4a7
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","username":"zoe","text":"it is very good,but need more practice "}
-
-<> 2018-10-21T031120.200.json
-
-###
-
-GET http://localhost:3000/comments/search/Foundations
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is very good,but need more practice "}
-
-<> 2018-10-21T012417.200.json
-
-###
-
-GET http://localhost:3000/comments/search/Foundations%20for%20Analytics%20with%20Python
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is very good,but need more practice "}
-
-<> 2018-10-21T012409.200.json
-
-###
-
-GET http://localhost:3000/comments/search/Foundations%20for%20Analytics%20with%20Python
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is very good,but need more practice "}
-
-<> 2018-10-21T012359.404.html
-
-###
-
-PUT http://localhost:3000/comments/5bcc6cce83482d46acf0b4a8
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is very good,but need more practice "}
-
-<> 2018-10-21T012105.200.json
-
-###
-
-PUT http://localhost:3000/comments/5bcc6cce83482d46acf0b4a8
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is good,but need more practice "}
-
-<> 2018-10-21T011819.200.json
-
-###
-
-GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
-
-<> 2018-10-21T011216.200.json
-
-###
-
-GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
-
-<> 2018-10-21T011205.404.html
-
-###
-
-GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
-
-<> 2018-10-21T011128.404.html
-
-###
-
-GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
-
-<> 2018-10-21T011108.404.html
+<> 2018-10-25T105856.200.json
 
 ###
 
@@ -223,225 +69,75 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"bookname": "Foundations for Analytics with Python","text":"it is good,but nedd more practice "}
+{"text": "it needs improvements","bookname": "Foundations for  Analytics with Python","username": "justin"}
 
-<> 2018-10-21T011054.200.json
+<> 2018-10-25T105806.200.json
 
 ###
 
-POST http://localhost:3000/comments
+GET http://localhost:3000/comments/search/abc
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"bookname": "Foundations for Analytics with Python","text":"it is very useful"}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&Software Engineering","likes":0}
 
-<> 2018-10-21T010911.200.json
+<> 2018-10-25T105742.404.json
 
 ###
 
-POST http://localhost:3000/comments
+GET http://localhost:3000/comments/search/Foun
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Foundations for Analytics with Python","text":"it is very useful"}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&Software Engineering","likes":0}
 
-<> 2018-10-21T010710.200.json
+<> 2018-10-25T105731.200.json
 
 ###
 
-GET http://localhost:3000/books/searchcategory/sci
+GET http://localhost:3000/comments/Foundations%20for%20Analytics%20with%20Python
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&Software Engineering","likes":0}
 
-<> 2018-10-19T122657.200.json
+<> 2018-10-25T105716.200.json
 
 ###
 
-GET http://localhost:3000/books/searchauthor/clinton
+DELETE http://localhost:3000/books/5bd23ba8fa0287284c7141a1
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&Software Engineering","likes":0}
 
-<> 2018-10-19T122644.200.json
+<> 2018-10-25T105611.200.json
 
 ###
 
-GET http://localhost:3000/books/searchauthor/Clinton
+PUT http://localhost:3000/books/5bd23ba8fa0287284c7141a1/like
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&Software Engineering","likes":0}
 
-<> 2018-10-19T122638.200.json
+<> 2018-10-25T105548.200.json
 
 ###
 
-GET http://localhost:3000/books/search/Analy
+PUT http://localhost:3000/books/5bd23ba8fa0287284c7141a1
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&Software Engineering","likes":0}
 
-<> 2018-10-19T122325.200.json
-
-###
-
-GET http://localhost:3000/books
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T122314.200.json
-
-###
-
-GET http://localhost:3000/books/search/Computing
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T122305.200.json
-
-###
-
-GET http://localhost:3000/books
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T122232.200.json
-
-###
-
-GET http://localhost:3000/books/search/Vldimir%20I.
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T122227.200.json
-
-###
-
-GET http://localhost:3000/books/search/Vldimir%20I.
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T122114.200.json
-
-###
-
-GET http://localhost:3000/books
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T122058.200.json
-
-###
-
-GET http://localhost:3000/books
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-###
-
-GET http://localhost:3000/books
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-###
-
-GET http://localhost:3000/books/search/W.
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T121815.200.json
-
-###
-
-GET http://localhost:3000/books/search/Analy
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T121804.200.json
-
-###
-
-GET http://localhost:3000/books
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T121731.200.json
-
-###
-
-GET http://localhost:3000/books/search/Ana
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T115930.200.json
-
-###
-
-GET http://localhost:3000/books/search/Analysis
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T115924.200.json
-
-###
-
-GET http://localhost:3000/books
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
-
-<> 2018-10-19T115908.200.json
+<> 2018-10-25T105529.200.json
 
 ###
 
@@ -450,9 +146,97 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Foundations for Analytics with Python",   "author": "Brownley, Clinton W.","publisher":"Southeast University Press","category":"Computing Science","upvotes":169}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science","likes":0}
 
-<> 2018-10-17T094655.200.json
+<> 2018-10-25T105448.200.json
+
+###
+
+GET http://localhost:3000/books/searchname/diga
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering","likes":0}
+
+<> 2018-10-25T105427.404.json
+
+###
+
+GET http://localhost:3000/books/searchname/dig
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering","likes":0}
+
+<> 2018-10-25T105422.200.json
+
+###
+
+GET http://localhost:3000/books/5bcf6d42e
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering","likes":0}
+
+<> 2018-10-25T105407.404.json
+
+###
+
+GET http://localhost:3000/books/5bcf6d42e2df0f50e01d2394
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering","likes":0}
+
+<> 2018-10-25T105403.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering","likes":0}
+
+<> 2018-10-25T105350.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering","likes":0}
+
+<> 2018-10-25T105302.200.json
+
+###
+
+PUT http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering","likes":0}
+
+<> 2018-10-25T105032.404.html
+
+###
+
+PUT http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering","likes":0}
+
+<> 2018-10-25T105020.404.html
 
 ###
 
@@ -461,9 +245,86 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Digital Portrait Photography For Dummies",   "author": "Doug Sahlin","publisher":"John Wiley & Sons","category":"Photography","upvotes":169}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
 
-<> 2018-10-17T094601.200.json
+<> 2018-10-25T104945.200.json
+
+###
+
+GET http://localhost:3000/books/searchname/foun
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering"}
+
+<> 2018-10-25T104925.200.json
+
+###
+
+GET http://localhost:3000/books/searchname/goun
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering"}
+
+<> 2018-10-25T104920.404.json
+
+###
+
+GET http://localhost:3000/books/5bcf6d4
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering"}
+
+<> 2018-10-25T104905.404.json
+
+###
+
+GET http://localhost:3000/books/5bcf6d42e2df0f50e01d2394
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering"}
+
+<> 2018-10-25T104859.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering"}
+
+<> 2018-10-25T104849.200.json
+
+###
+
+PUT http://localhost:3000/books/5bd23
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering"}
+
+<> 2018-10-25T104750.404.json
+
+###
+
+PUT http://localhost:3000/books/5bd239b6b7836a269c86e376
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science&software engineering"}
+
+<> 2018-10-25T104732.200.json
 
 ###
 
@@ -472,53 +333,75 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Building Web Sites All-in-One Desk Reference For Dummies",   "author": "Doug Sahlin","publisher":"John Wiley & Sons","category":"Computing Science","upvotes":169}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
 
-<> 2018-10-17T094502.200.json
+<> 2018-10-25T104630.200.json
 
 ###
 
-POST http://localhost:3000/books/5bc79e486c4d860060ab6a7f
+GET http://localhost:3000/books/searchname/abc
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "Building Web Sites All-in-One Desk Reference For Dummies",   "author": "Doug Sahlin","publisher":"John Wiley & Sons","category":"Computing Science","upvotes":169}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
 
-<> 2018-10-17T094448.404.html
+<> 2018-10-25T104619.404.json
 
 ###
 
-PUT http://localhost:3000/books/5bc79e486c4d860060ab6a7f
+GET http://localhost:3000/books/searchname/digital
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "INTRODUCTION TO QUANTUM COMPUTERS",   "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher":"Southeast University Press","category":"Computing Science","upvotes":45}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
 
-<> 2018-10-17T094307.200.json
+<> 2018-10-25T104559.200.json
 
 ###
 
-PUT http://localhost:3000/books/5bc79e486c4d860060ab6a7f
+GET http://localhost:3000/books/5bcf6d
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "INTRODUCTION TO QUANTUM COMPUTERS",   "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher":"Southeast University Press","category":"Computing Science","upvotes":45}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
 
-<> 2018-10-17T094255.404.html
+<> 2018-10-25T104541.404.json
 
 ###
 
-PUT http://localhost:3000/books/5bc79e486c4d860060ab6a7f
+GET http://localhost:3000/books/5bcf6d42e2df0f50e01d2394
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "INTRODUCTION TO QUANTUM COMPUTERS",   "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher":"Southeast University Press","category":"Computing Science","upvotes":45}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
 
-<> 2018-10-17T094226.404.html
+<> 2018-10-25T104536.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
+
+<> 2018-10-25T104518.200.json
+
+###
+
+PUT http://localhost:3000/books/5bd238fc2a50dd40e8e828d0
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
+
+<> 2018-10-25T104356.200.json
 
 ###
 
@@ -527,20 +410,141 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": "INTRODUCTION TO QUANTUM COMPUTERS",   "author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher":"Southeast University Press","category":"Computing Science"}
+{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing Science"}
 
-<> 2018-10-17T094040.200.json
+<> 2018-10-25T104325.200.json
 
 ###
 
-POST http://localhost:3000/books
+GET http://localhost:3000/books/searchname/abc
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
-{"name": 'INTRODUCTION TO QUANTUM COMPUTERS',   "author": 'Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman',"publisher":'Southeast University Press',"category":"Computing Science"}
+{"username":"justin","password":"654321"}
 
-<> 2018-10-17T093943.400.html
+<> 2018-10-25T104252.404.json
+
+###
+
+GET http://localhost:3000/books/searchname/foun
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T104237.200.json
+
+###
+
+GET http://localhost:3000/books/5bcf6d
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T104217.404.json
+
+###
+
+GET http://localhost:3000/books/5bcf6d42e2df0f50e01d2394
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T104205.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T104136.200.json
+
+###
+
+GET http://localhost:3000/books/searchname/Foun
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T103755.200.json
+
+###
+
+GET http://localhost:3000/books/searchname/fun
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T103735.404.json
+
+###
+
+GET http://localhost:3000/books/5bcf
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T103719.404.json
+
+###
+
+GET http://localhost:3000/books/5bcf6d42e2df0f50e01d2394
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T103711.200.json
+
+###
+
+GET http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T103643.200.json
+
+###
+
+GET http://localhost:3000/books/searchname/multi
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T103525.200.json
+
+###
+
+GET http://localhost:3000/books/5bcf6c50e2df0f50e01d2391
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"justin","password":"654321"}
+
+<> 2018-10-25T103458.200.json
 
 ###
 
