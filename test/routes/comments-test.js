@@ -45,7 +45,7 @@ describe('Comments', function () {
         it('should return confirmation message and update datastore', function (done) {
             let comment = {
                 text: "it needs improvements",
-                bookname: "Foundations for Analytics with Python",
+                bookname: "Multi-objective Decision Analysis",
                 username: "theo"
             };
             chai.request(server)
@@ -59,7 +59,7 @@ describe('Comments', function () {
         });
         after(function (done) {
             chai.request(server)
-                .get('/comments/Foundations for Analytics with Python')
+                .get('/comments/Multi-objective Decision Analysis')
                 .end(function (err, res) {
                     let result = _.map(res.body, (comment) => {
                         return {
@@ -70,7 +70,7 @@ describe('Comments', function () {
                     });
                     expect(result).to.include({
                         text: "it needs improvements",
-                        bookname: "Foundations for Analytics with Python",
+                        bookname: "Multi-objective Decision Analysis",
                         username: "theo"
                     });
                     done();
@@ -106,9 +106,9 @@ describe('Comments', function () {
     describe('DELETE /comments/:id', () => {
         it('should return delelte message and update datastore', function (done) {
             chai.request(server)
-                .get('/comments/Foundations for Analytics with Python')
+                .get('/comments/Multi-objective Decision Analysis')
                 .end(function (err, res) {
-                    const commentId = res.body[1]._id;
+                    const commentId = res.body[0]._id;
                     chai.request(server)
                         .delete('/comments/'+ commentId)
                         .end(function (err, res) {
@@ -121,16 +121,12 @@ describe('Comments', function () {
 
         after(function (done) {
             chai.request(server)
-                .get('/comments/Building Web Sites All-in-One Desk Reference For Dummies')
+                .get('/comments/Multi-objective Decision Analysis')
                 .end(function (err, res) {
-                    expect(res.body).to.not.include({
-                        text: "it needs improvements",
-                        bookname: "Building Web Sites All-in-One Desk Reference For Dummies",
-                        username: "john"
+                    expect(res.body).to.be.empty;
                     });
                     done();
                 });
-        });
         it('should return a 404 and a message for invalid comment id', function(done) {
             chai.request(server)
                 .delete('/comments/1100001')
