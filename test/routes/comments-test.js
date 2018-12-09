@@ -15,7 +15,7 @@ describe('Comments', function () {
                 .end(function (err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(2);
+                    expect(res.body.length).to.equal(1);
                     let result = _.map(res.body, (comment) => {
                         return {
                             text: comment.text,
@@ -24,15 +24,10 @@ describe('Comments', function () {
                         }
                     });
                     expect(result).to.include({
-                        text: "it is very useful ",
+                        text: "I like it! ",
                         bookname: "Foundations for Analytics with Python",
-                        username: "john"
+                        username: "justin"
                     });
-                    expect(result).to.include( {  text: "it is very good,but need more practice ",
-                        bookname: "Foundations for Analytics with Python",
-                        username: "zoe"
-                    } );
-
                     done();
                 });
         });
@@ -46,49 +41,12 @@ describe('Comments', function () {
                 });
         });
     });
-    describe('GET /comments/search/:bookname',  () => {
-        it('should return one or more comments you fuzzy search for', function(done) {
-            chai.request(server)
-                .get('/comments/search/analy')
-                .end(function(err, res) {
-                    expect(res).to.have.status(200);
-                    expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(2);
-                    let result = _.map(res.body, (comment) => {
-                        return {
-                            text: comment.text,
-                            username: comment.username,
-                            bookname: comment.bookname,
-                        }
-                    });
-                    expect(result).to.include( {  text: "it is very useful ",
-                        bookname: "Foundations for Analytics with Python",
-                        username: "john"
-                    } );
-                    expect(result).to.include( {  text: "it is very good,but need more practice ",
-                        bookname: "Foundations for Analytics with Python",
-                        username: "zoe"
-                    } );
-
-                    done();
-                });
-        });
-        it('should return a 404 and a message for invalid keyword', function(done) {
-            chai.request(server)
-                .get('/comments/search/abc')
-                .end(function(err, res) {
-                    expect(res).to.have.status(404);
-                    expect(res.body).to.have.property('message','Comment NOT Found!' ) ;
-                    done();
-                });
-        });
-    });
     describe('POST /comments', function () {
         it('should return confirmation message and update datastore', function (done) {
             let comment = {
                 text: "it needs improvements",
                 bookname: "Foundations for Analytics with Python",
-                username: "justin"
+                username: "theo"
             };
             chai.request(server)
                 .post('/comments')
@@ -113,13 +71,13 @@ describe('Comments', function () {
                     expect(result).to.include({
                         text: "it needs improvements",
                         bookname: "Foundations for Analytics with Python",
-                        username: "justin"
+                        username: "theo"
                     });
                     done();
                 });
         });
     });
-    describe('PUT /comments/:id', () => {
+    /*describe('PUT /comments/:id', () => {
         it('should return the updated message', function (done) {
             let comment = {
                 text: "it is very useful",
@@ -144,35 +102,32 @@ describe('Comments', function () {
                     done();
                 });
         });
-    });
+    });*/
     describe('DELETE /comments/:id', () => {
-        it('should return delelte message and update datastore', function(done) {
-            chai.request(server)
-                .delete('/comments/5bcc6c6783482d46acf0b4a7')
-                .end(function(err, res) {
-                    expect(res).to.have.status(200);
-                    expect(res.body).to.have.property('message').equal('Comment Successfully Deleted!' );
-                    done();
-                });
-        });
-        after(function  (done) {
+        it('should return delelte message and update datastore', function (done) {
             chai.request(server)
                 .get('/comments/Foundations for Analytics with Python')
-                .end(function(err, res) {
-                    let result = _.map(res.body, (comment) => {
-                        return {
-                            text: comment.text,
-                            username: comment.username,
-                            bookname: comment.bookname, };
-                    }  );
-                    expect(result).to.include( {  text: "it needs improvements",
-                        bookname: "Foundations for Analytics with Python",
-                        username: "justin"
-                    } );
-                    /*expect(result).to.include( {  text: "it is very good,but need more practice ",
-                        bookname: "Foundations for Analytics with Python",
-                        username: "zoe"
-                    } );*/
+                .end(function (err, res) {
+                    const commentId = res.body[1]._id;
+                    chai.request(server)
+                        .delete('/comments/'+ commentId)
+                        .end(function (err, res) {
+                            expect(res).to.have.status(200);
+                            expect(res.body).to.have.property('message').equal('Comment Successfully Deleted!');
+                            done();
+                        });
+                });
+        });
+
+        after(function (done) {
+            chai.request(server)
+                .get('/comments/Building Web Sites All-in-One Desk Reference For Dummies')
+                .end(function (err, res) {
+                    expect(res.body).to.not.include({
+                        text: "it needs improvements",
+                        bookname: "Building Web Sites All-in-One Desk Reference For Dummies",
+                        username: "john"
+                    });
                     done();
                 });
         });
