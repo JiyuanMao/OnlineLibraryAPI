@@ -6,8 +6,8 @@ var Book = require('../models/books');
 /*var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
     replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } },
     user: 'Jiyuan Mao', pass: '1997914mjy' };*/
-
-var mongodbUri ='mongodb://booksdb:1997914mjy@ds125683.mlab.com:25683/onlinebooksdb';
+var mongodbUri = 'mongodb://jiyuan:qwert12345@ds151523.mlab.com:51523/onlinelibrary';
+//var mongodbUri ='mongodb://booksdb:1997914mjy@ds125683.mlab.com:25683/onlinebooksdb';
 //mongoose.connect('mongodb://localhost:27017/booksdb');
 //var mongodbUri = 'mongodb://ds141623.mongolab.com:41623/heroku_9tqwthbf';
 //var mongooseUri = uriUtil.formatMongoose(mongodbUri);
@@ -29,18 +29,19 @@ router.findAll = (req, res) => {
         if (err)
             res.send(err);
 
-        res.send(JSON.stringify(books,null,5));
+        //res.send(JSON.stringify(books,null,5));
+        res.send(books,null,5);
         //console.log(books.sort());
     });
 }
 
 
 
-router.findOne = (req, res) => {
+router.findByName = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
-    Book.find({ "_id" : req.params.id },function(err, book) {
-        if (err){
+    Book.find({ "name" : req.params.name },function(err, book) {
+        if (book.length <=0){
 			res.status(404);
             res.json({ message: 'Book NOT Found!'} )
         }else{
@@ -68,7 +69,7 @@ router.addBook = (req, res) => {
     });
 }
 
-router.incrementLikes = (req, res) => {
+/*router.incrementLikes = (req, res) => {
 
     Book.findById(req.params.id, function(err,book) {
         if (err) {
@@ -85,7 +86,7 @@ router.incrementLikes = (req, res) => {
             });
         }
     });
-}
+}*/
 
 router.deleteBook = (req, res) => {
 
@@ -106,7 +107,8 @@ router.findByAuthor = (req, res) => {
     Book.find({ "author" : req.params.author },function(err, book) {
         if (book.length <=0) {
             // return a suitable error message
-            res.json({message: 'Book NOT Found!'})
+            res.status(404);
+            res.json({message: 'Author NOT Found!'})
         }else{
             // return the book
             res.send(JSON.stringify(book,null,5));
@@ -122,12 +124,14 @@ router.findByPublisher = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     Book.find({ "publisher" : req.params.publisher },function(err, book) {
-        if (book.length <=0)
-        // return a suitable error message
-            res.json({ message: 'Book NOT Found!'} );
-        else
-        // return the book
-            res.send(JSON.stringify(book,null,5));
+        if (book.length <=0) {
+            // return a suitable error message
+            res.status(404);
+            res.json({message: 'Publisher NOT Found!'})
+        }else {
+            // return the book
+            res.send(JSON.stringify(book, null, 5));
+        }
     });
 
 }
@@ -137,12 +141,14 @@ router.findByCategory = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     Book.find({ "category" : req.params.category },function(err, book) {
-        if (book.length <=0)
-        // return a suitable error message
-            res.json({ message: 'Book NOT Found!'} );
-        else
-        // return the book
-            res.send(JSON.stringify(book,null,5));
+        if (book.length <=0) {
+            // return a suitable error message
+            res.status(404);
+            res.json({message: 'Category NOT Found!'});
+        }else {
+            // return the book
+            res.send(JSON.stringify(book, null, 5));
+        }
     });
 
 }
@@ -196,10 +202,10 @@ router.searchByAuthor = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = {'author': {$regex:req.params.author,$options:'i'}};
     Book.find(keyword, function (err, book) {
-        if (book.length <= 0)
-            res.json({message: 'Book NOT Found!'});
-        else {
-
+        if (book.length <= 0) {
+            res.status(404);
+            res.json({message: 'Book NOT Found!'})
+        }else {
             res.send(JSON.stringify(book,null,5));
         }
     });
@@ -209,9 +215,10 @@ router.searchByPublisher = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = {'publisher': {$regex:req.params.publisher,$options:'i'}};
     Book.find(keyword, function (err, book) {
-        if (book.length <= 0)
+        if (book.length <= 0) {
+            res.status(404);
             res.json({message: 'Book NOT Found!'});
-        else {
+        }else {
 
             res.send(JSON.stringify(book,null,5));
         }
@@ -222,9 +229,10 @@ router.searchByCategory = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = {'category': {$regex:req.params.category,$options:'i'}};
     Book.find(keyword, function (err, book) {
-        if (book.length <= 0)
+        if (book.length <= 0) {
+            res.status(404);
             res.json({message: 'Book NOT Found!'});
-        else {
+        }else {
 
             res.send(JSON.stringify(book,null,5));
         }

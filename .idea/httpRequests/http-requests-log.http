@@ -1,3 +1,25 @@
+GET http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"zoe","password":"123456","usertype":"admin"}
+
+<> 2018-12-09T044726.200.json
+
+###
+
+POST http://localhost:3000/users
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"username":"zoe","password":"123456","usertype":"admin"}
+
+<> 2018-12-09T044538.200.json
+
+###
+
 GET http://localhost:3000/books/searchcategory/abc
 Accept: */*
 Cache-Control: no-cache
@@ -517,28 +539,6 @@ Content-Type: application/json
 {"text": "it needs improvements","bookname": "Foundations for Analytics with Python","username": "justin"}
 
 <> 2018-10-26T055443.404.json
-
-###
-
-GET http://localhost:3000/books/5bd30ff5113a
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"text": "it needs improvements","bookname": "Foundations for Analytics with Python","username": "justin"}
-
-<> 2018-10-26T055419.200.json
-
-###
-
-GET http://localhost:3000/books/5bd30ff5113a
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"text": "it needs improvements","bookname": "Foundations for Analytics with Python","username": "justin"}
-
-<> 2018-10-26T055406.200.json
 
 ###
 

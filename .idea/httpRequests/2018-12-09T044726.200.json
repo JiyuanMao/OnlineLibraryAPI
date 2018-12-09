@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "5c0bb95582b4d61bb00e1004",
+    "username": "test",
+    "password": "123",
+    "usertype": "user",
+    "__v": 0
+  },
+  {
+    "_id": "5c0bb96482b4d61bb00e1005",
+    "username": "test",
+    "password": "123",
+    "usertype": "user",
+    "__v": 0
+  },
+  {
+    "_id": "5c0bb9bd82b4d61bb00e1006",
+    "username": "test",
+    "password": "123",
+    "usertype": "user",
+    "__v": 0
+  },
+  {
+    "_id": "5c0c9cf3a068b03c2c03a6ba",
+    "username": "theo",
+    "password": "123456",
+    "usertype": "user",
+    "__v": 0
+  },
+  {
+    "_id": "5c0c9df1a068b03c2c03a6bb",
+    "username": "zoe",
+    "password": "123456",
+    "usertype": "admin",
+    "__v": 0
+  }
+]

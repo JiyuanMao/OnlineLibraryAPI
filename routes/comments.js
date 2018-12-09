@@ -4,8 +4,8 @@ let router = express.Router();
 let mongoose = require('mongoose');
 var Comment = require('../models/comments');
 
-
-var mongodbUri ='mongodb://booksdb:1997914mjy@ds125683.mlab.com:25683/onlinebooksdb';
+var mongodbUri = 'mongodb://jiyuan:qwert12345@ds151523.mlab.com:51523/onlinelibrary';
+//var mongodbUri ='mongodb://booksdb:1997914mjy@ds125683.mlab.com:25683/onlinebooksdb';
 //mongoose.connect('mongodb://localhost:27017/booksdb');
 mongoose.connect(mongodbUri);
 let db = mongoose.connection;

@@ -119,7 +119,7 @@ describe('Comments', function () {
                 });
         });
     });
-    describe('PUT /comments/:id', () => {
+    describe.only('PUT /comments/:id', () => {
         it('should return the updated message', function (done) {
             let comment = {
                 text: "it is very useful",
