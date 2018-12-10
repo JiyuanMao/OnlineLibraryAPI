@@ -27,14 +27,14 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.get('/books', books.findAll);
-app.get('/books/bname/:name', books.findByName);
-app.get('/books/bpublisher/:publisher', books.findByPublisher);
-app.get('/books/bcategory/:category', books.findByCategory);
-app.get('/books/bauthor/:author', books.findByAuthor);
-app.get('/books/searchname/:name', books.searchByName);
-app.get('/books/searchauthor/:author', books.searchByAuthor);
-app.get('/books/searchpublisher/:publisher', books.searchByPublisher);
-app.get('/books/searchcategory/:category', books.searchByCategory);
+//app.get('/books/bname/:name', books.findByName);
+//app.get('/books/bpublisher/:publisher', books.findByPublisher);
+//app.get('/books/bcategory/:category', books.findByCategory);
+//app.get('/books/bauthor/:author', books.findByAuthor)
+//app.get('/books/searchname/:name', books.searchByName);
+//app.get('/books/searchauthor/:author', books.searchByAuthor);
+//app.get('/books/searchpublisher/:publisher', books.searchByPublisher);
+//app.get('/books/searchcategory/:category', books.searchByCategory);
 app.get('/comments/:bookname', comments.findOne);
 //app.get('/comments/search/:bookname', comments.searchByName);
 app.get('/users', users.findAll);
@@ -47,7 +47,7 @@ app.post('/users', users.addUser);
 app.put('/books/:id', books.editBook);
 //app.put('/books/:id/like', books.incrementLikes);
 //app.put('/comments/:id', comments.editComment);
-app.put('/users/:id', users.editUser);
+//app.put('/users/:id', users.editUser);
 
 app.delete('/books/:id', books.deleteBook);
 app.delete('/comments/:id', comments.deleteComment);

@@ -53,7 +53,7 @@ describe('Books', function (){
             });
         });
 
-        describe('GET /books/bname/:name',  () => {
+        /*describe('GET /books/bname/:name',  () => {
             describe('when name is correct', function(done) {
                 it('should return one book according to name you search for', function (done) {
                     chai.request(server)
@@ -409,7 +409,7 @@ describe('Books', function (){
                         });
                 });
             });
-        });
+        });*/
     });
     describe('Post/', function (){
         describe('POST /books', function () {

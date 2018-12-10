@@ -75,6 +75,55 @@ describe('Users', function () {
                     });
             });
         });
+    describe('POST /users/login', function () {
+        it('should return success', function (done) {
+            let user = {
+                username: "justin",
+                password: "123456",
+                usertype: "user"
+            };
+            chai.request(server)
+                .post('/users/login')
+                .send(user)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    //expect(res.body).to.have.property('message').equal('User Successfully Added!' );
+                    done();
+                });
+        });
+        after(function (done) {
+            chai.request(server)
+                .get('/users/')
+                .end(function (err, res) {
+                    let result = _.map(res.body, (user) => {
+                        return {
+                            username: user.username,
+                            password: user.password,
+                            usertype:user.usertype
+                        };
+                    });
+                    expect(result).to.include( {  username: "justin",
+                        password: "123456",
+                        usertype:"user"
+                    } );
+                    done();
+                });
+        });
+        it('should return 404', function (done) {
+            let user = {
+                username: "justin",
+                password: "654321",
+            };
+            chai.request(server)
+                .post('/users/login')
+                .send(user)
+                .end(function (err, res) {
+                    expect(res).to.have.status(404);
+                    expect(res.body).to.have.property('message', 'User NOT Found!');
+                    done();
+                });
+        });
+    });
     /*describe('POST /users/login', function () {
         it('should return confirmation message and update datastore', function (done) {
             let user = {
