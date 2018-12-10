@@ -1,4 +1,7 @@
-//let comments = require('../models/comments');
+/*import Comment from '../models/comments';
+import express from 'express';
+let router = express.Router();*/
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');

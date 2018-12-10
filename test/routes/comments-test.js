@@ -6,6 +6,16 @@ let expect = chai.expect;
 chai.use(chaiHttp);
 let _ = require('lodash' );
 
+/*import chai from 'chai';
+import chaiHttp from 'chai-http' ;
+import server from '../../bin/www';
+let expect = chai.expect;
+import datastore from '../../models/comments';
+import _ from 'lodash';
+import things from 'chai-things'
+chai.use( things);
+chai.use(chaiHttp);*/
+
 describe('Comments', function () {
     // TODO
     describe('GET /comments/:bookname', () => {

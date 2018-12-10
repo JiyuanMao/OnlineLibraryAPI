@@ -8,6 +8,16 @@ chai.use(chaiHttp);
 let _ = require('lodash' );
 chai.use(require('chai-things'));
 
+/*import chai from 'chai';
+import chaiHttp from 'chai-http' ;
+import server from '../../bin/www';
+let expect = chai.expect;
+//import datastore from '../../models/books';
+import _ from 'lodash';
+import things from 'chai-things'
+chai.use( things);
+chai.use(chaiHttp);*/
+
 describe('Books', function (){
     // TODO
     describe('Get/', function (){

@@ -8,6 +8,16 @@ chai.use(chaiHttp);
 let _ = require('lodash' );
 chai.use(require('chai-things'));
 
+/*import chai from 'chai';
+import chaiHttp from 'chai-http' ;
+import server from '../../bin/www';
+let expect = chai.expect;
+import datastore from '../../models/users';
+import _ from 'lodash';
+import things from 'chai-things'
+chai.use( things);
+chai.use(chaiHttp);*/
+
 describe('Users', function () {
     describe('GET /users',  () => {
         it('should return all the users in an array', function(done) {
