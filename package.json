@@ -12,7 +12,7 @@
     "lint": "esw  ./test ./routes ./models/ app.js",
     "lint:watch": "npm run lint -- --watch",
     "build": "babel ./ --out-dir lib/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./test --copy-files",
-    "coverage": "cross-env NODE_ENV=test PORT=4000 nyc mocha test/routes/comments-test.js",
+    "coverage": "cross-env NODE_ENV=test PORT=4000 nyc mocha test/routes/users-test.js",
     "publish-coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
