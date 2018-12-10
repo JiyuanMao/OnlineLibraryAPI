@@ -1,3 +1,14 @@
+POST http://localhost:3000/books
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"name": "Building Web Sites All-in-One Desk Reference For Dummies","author": "Doug Sahlin","publisher": "John Wiley & Sons","category":"Computing Science","likes":0}
+
+<> 2018-12-10T103700.200.json
+
+###
+
 POST http://localhost:3000/users
 Accept: */*
 Cache-Control: no-cache
@@ -528,17 +539,6 @@ Content-Type: application/json
 {"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing","likes":0}
 
 <> 2018-10-26T055655.200.json
-
-###
-
-PUT http://localhost:3000/books/5bd3472897136
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-
-{"name": "'INTRODUCTION TO QUANTUM COMPUTERS","author": "Gary D. Doolen，Ronnie Mainieri，Vldimir I. Tsifrinovich，Gennady P. Berman","publisher": "Southeast University Press","category":"Computing","likes":0}
-
-<> 2018-10-26T055642.404.json
 
 ###
 

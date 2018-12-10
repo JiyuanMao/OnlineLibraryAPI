@@ -1,0 +1,12 @@
+{
+  "message": "Book Successfully Added!",
+  "data": {
+    "likes": 0,
+    "_id": "5c0e41cc09536e51bcd8c91d",
+    "name": "Building Web Sites All-in-One Desk Reference For Dummies",
+    "author": "Doug Sahlin",
+    "publisher": "John Wiley & Sons",
+    "category": "Computing Science",
+    "__v": 0
+  }
+}
