@@ -1,4 +1,4 @@
-let comments = require('../models/comments');
+//let comments = require('../models/comments');
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -21,14 +21,14 @@ db.once('open', function () {
 router.findOne = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
-    Comment.find({ "bookname" : req.params.bookname },function(err, comment) {
+    Comment.find({ 'bookname' : req.params.bookname },function(err, comment) {
         if (comment.length <=0) {
             res.status(404);
             res.json({message: 'Comment NOT Found!'});
         }else
             res.send(JSON.stringify(comment,null,5));
     });
-}
+};
 
 router.addComment = (req, res) => {
 
@@ -46,7 +46,7 @@ router.addComment = (req, res) => {
         else
             res.json({ message: 'Comment Successfully Added!', data: comment });
     });
-}
+};
 
 router.deleteComment = (req, res) => {
 
@@ -58,7 +58,7 @@ router.deleteComment = (req, res) => {
             res.json({ message: 'Comment Successfully Deleted!'});
         }
     });
-}
+};
 
 router.editComment = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -85,7 +85,7 @@ router.editComment = (req, res) => {
         }
     });
 
-}
+};
 
 router.searchByName = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -99,6 +99,6 @@ router.searchByName = (req, res) => {
             res.send(JSON.stringify(comment,null,5));
         }
     });
-}
+};
 
 module.exports = router;

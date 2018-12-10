@@ -1,4 +1,4 @@
-let books = require('../models/books');
+//let books = require('../models/books');
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -33,22 +33,22 @@ router.findAll = (req, res) => {
         res.send(books,null,5);
         //console.log(books.sort());
     });
-}
+};
 
 
 
 router.findByName = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
-    Book.find({ "name" : req.params.name },function(err, book) {
+    Book.find({ 'name' : req.params.name },function(err, book) {
         if (book.length <=0){
 			res.status(404);
-            res.json({ message: 'Book NOT Found!'} )
+            res.json({ message: 'Book NOT Found!'} );
         }else{
             res.send(JSON.stringify(book,null,5));
 		}
     });
-}
+};
 
 router.addBook = (req, res) => {
 
@@ -67,7 +67,7 @@ router.addBook = (req, res) => {
         else
             res.json({ message: 'Book Successfully Added!', data: book });
     });
-}
+};
 
 /*router.incrementLikes = (req, res) => {
 
@@ -98,24 +98,24 @@ router.deleteBook = (req, res) => {
             res.json({ message: 'Book Successfully Deleted!'});
         }
     });
-}
+};
 
 router.findByAuthor = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Book.find({ "author" : req.params.author },function(err, book) {
+    Book.find({ 'author' : req.params.author },function(err, book) {
         if (book.length <=0) {
             // return a suitable error message
             res.status(404);
-            res.json({message: 'Author NOT Found!'})
+            res.json({message: 'Author NOT Found!'});
         }else{
             // return the book
             res.send(JSON.stringify(book,null,5));
         }
     });
 
-}
+};
 
 
 
@@ -123,24 +123,24 @@ router.findByPublisher = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Book.find({ "publisher" : req.params.publisher },function(err, book) {
+    Book.find({ 'publisher' : req.params.publisher },function(err, book) {
         if (book.length <=0) {
             // return a suitable error message
             res.status(404);
-            res.json({message: 'Publisher NOT Found!'})
+            res.json({message: 'Publisher NOT Found!'});
         }else {
             // return the book
             res.send(JSON.stringify(book, null, 5));
         }
     });
 
-}
+};
 
 router.findByCategory = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    Book.find({ "category" : req.params.category },function(err, book) {
+    Book.find({ 'category' : req.params.category },function(err, book) {
         if (book.length <=0) {
             // return a suitable error message
             res.status(404);
@@ -151,38 +151,30 @@ router.findByCategory = (req, res) => {
         }
     });
 
-}
+};
 
 router.editBook = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
+    Book.findById(req.params.id, function (err, book) {
+        if (err) {
+            res.status(404);
+            res.json({message: 'Book NOT Found!'});
+        }else {
+            book.name = req.body.name;
+            book.author = req.body.author;
+            book.publisher = req.body.publisher;
+            book.category = req.body.category;
+            book.likes= req.body.likes;
+            book.save(function(){
+                if(err)
+                    res.json({message: 'Book NOT UpDated!',errmsg:err});
+                else
+                    res.json({message: 'Book Successfully UpDated!',data:book});
+            });
+        }
+    });
 
-        /*var updatestr = {
-            "name": req.body.name,
-            "author": req.body.author,
-            "publisher": req.body.publisher,
-            "category": req.body.category,
-            "likes": req.body.likes
-        }*/
-        Book.findById(req.params.id, function (err, book) {
-            if (err) {
-                res.status(404);
-                res.json({message: 'Book NOT Found!'});
-            }else {
-                book.name = req.body.name;
-                book.author = req.body.author;
-                book.publisher = req.body.publisher;
-                book.category = req.body.category;
-                book.likes= req.body.likes;
-                book.save(function(){
-                    if(err)
-                        res.json({message: 'Book NOT UpDated!',errmsg:err});
-                    else
-                        res.json({message: 'Book Successfully UpDated!',data:book});
-                });
-            }
-        });
-
-}
+};
 
 router.searchByName = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -190,13 +182,13 @@ router.searchByName = (req, res) => {
     Book.find(keyword, function (err, book) {
         if (book.length <= 0){
 			res.status(404);
-            res.json({message: 'Book NOT Found!'})
+            res.json({message: 'Book NOT Found!'});
         }else {
 
             res.send(JSON.stringify(book,null,5));
         }
     });
-}
+};
 
 router.searchByAuthor = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -204,12 +196,12 @@ router.searchByAuthor = (req, res) => {
     Book.find(keyword, function (err, book) {
         if (book.length <= 0) {
             res.status(404);
-            res.json({message: 'Book NOT Found!'})
+            res.json({message: 'Book NOT Found!'});
         }else {
             res.send(JSON.stringify(book,null,5));
         }
     });
-}
+};
 
 router.searchByPublisher = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -223,7 +215,7 @@ router.searchByPublisher = (req, res) => {
             res.send(JSON.stringify(book,null,5));
         }
     });
-}
+};
 
 router.searchByCategory = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -237,5 +229,5 @@ router.searchByCategory = (req, res) => {
             res.send(JSON.stringify(book,null,5));
         }
     });
-}
+};
 module.exports = router;

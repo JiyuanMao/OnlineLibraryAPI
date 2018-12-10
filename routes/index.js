@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
+// eslint-disable-next-line no-unused-vars
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Online Library' });
+    res.render('index', { title: 'Online Library' });
 });
 
 module.exports = router;

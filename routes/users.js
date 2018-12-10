@@ -1,4 +1,4 @@
-let users = require('../models/users');
+//let users = require('../models/users');
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -29,12 +29,12 @@ router.findAll = (req, res) => {
 
         res.send(JSON.stringify(users, null, 5));
     });
-}
+};
 
 router.loginUser = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
-    User.find({"username": req.body.username, "password": req.body.password}, function (err, book) {
+    User.find({'username': req.body.username, 'password': req.body.password}, function (err, book) {
         if (book.length <= 0) {
             // return a suitable error message
             res.status(404);
@@ -44,7 +44,7 @@ router.loginUser = (req, res) => {
             res.send(JSON.stringify(book, null, 5));
     });
 
-}
+};
 router.addUser = (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
@@ -61,7 +61,7 @@ router.addUser = (req, res) => {
         else
             res.json({message: 'User Successfully Added!', data: user});
     });
-}
+};
 
 router.deleteUser = (req, res) => {
 
@@ -73,7 +73,7 @@ router.deleteUser = (req, res) => {
             res.json({message: 'User Successfully Deleted!'});
         }
     });
-}
+};
 
 router.editUser = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -99,7 +99,7 @@ router.editUser = (req, res) => {
         }
     });
 
-}
+};
 
 module.exports = router;
 

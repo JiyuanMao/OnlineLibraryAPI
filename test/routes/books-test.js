@@ -2,7 +2,7 @@ let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('../../bin/www');
 let expect = chai.expect;
-let Book=require('../../models/books');
+//let Book=require('../../models/books');
 
 chai.use(chaiHttp);
 let _ = require('lodash' );
@@ -25,7 +25,7 @@ describe('Books', function (){
                                 author:book.author,
                                 publisher:book.publisher,
                                 category:book.category,
-                            }
+                            };
                         });
                         expect(result).to.include( { name: 'Building Web Sites All-in-One Desk Reference For Dummies',
                             author: 'Doug Sahlin',
@@ -42,10 +42,10 @@ describe('Books', function (){
                             publisher: 'Southeast University Press',
                             category:'Computing Science',
                         } );
-                        expect(result).to.include( { name: "Multi-objective Decision Analysis",
-                            author: "Brownley, Clinton W.",
-                            publisher: "Business Expert Pr",
-                            category: "software engineering",
+                        expect(result).to.include( { name: 'Multi-objective Decision Analysis',
+                            author: 'Brownley, Clinton W.',
+                            publisher: 'Business Expert Pr',
+                            category: 'software engineering',
                         } );
 
                         done();
@@ -416,9 +416,9 @@ describe('Books', function (){
             it('should return confirmation message and update datastore', function(done) {
                 let book = {
                     name: 'Street Photography Now' ,
-                    author: " Sophie Howarth,Stephen McL",
-                    publisher: "Thames & Hudson",
-                    category:"Photography",
+                    author: 'Sophie Howarth,Stephen McL',
+                    publisher: 'Thames & Hudson',
+                    category: 'Photography',
                 };
                 chai.request(server)
                     .post('/books')
@@ -441,9 +441,9 @@ describe('Books', function (){
                             };
                         }  );
                         expect(result).to.include( { name: 'Street Photography Now' ,
-                            author: " Sophie Howarth,Stephen McL",
-                            publisher: "Thames & Hudson",
-                            category:"Photography",
+                            author: 'Sophie Howarth,Stephen McL',
+                            publisher: 'Thames & Hudson',
+                            category: 'Photography',
                         } );
                         done();
                     });
@@ -454,12 +454,13 @@ describe('Books', function (){
     });
     describe('Put/', function () {
         describe('PUT /books/:id', () => {
+            // eslint-disable-next-line no-unused-vars
             describe('when id is correct', function (done) {
                 it('should return the updated message', function (done) {
                     let book = {
                         name: 'Street Photography Now',
-                        author: " Sophie Howarth,Stephen McL",
-                        publisher: "Thames & Hudson",
+                        author: 'Sophie Howarth,Stephen McL',
+                        publisher: 'Thames & Hudson',
                         category: 'Computing Science&Software Engineering', likes: 0
                     };
                     chai.request(server)
@@ -491,14 +492,15 @@ describe('Books', function (){
                             });
                             expect(result).to.include({
                                 name: 'Street Photography Now',
-                                author: " Sophie Howarth,Stephen McL",
-                                publisher: "Thames & Hudson",
-                                category: "Computing Science&Software Engineering",
+                                author: 'Sophie Howarth,Stephen McL',
+                                publisher: 'Thames & Hudson',
+                                category: 'Computing Science&Software Engineering',
                             });
                             done();
                         });
                 });
             });
+            // eslint-disable-next-line no-unused-vars
             describe('when id is wrong', function (done) {
                 it('should return a 404 and a message for invalid book id', function (done) {
                     chai.request(server)
@@ -515,6 +517,7 @@ describe('Books', function (){
 
     describe('Delete/', function () {
         describe('DELETE /books/:id', () => {
+            // eslint-disable-next-line no-unused-vars
             describe('when id is correct', function (done) {
                 it('should return delelte message and update datastore', function (done) {
                     chai.request(server)
@@ -549,7 +552,7 @@ describe('Books', function (){
                                     author:book.author,
                                     publisher:book.publisher,
                                     category:book.category,
-                                }
+                                };
                             });
                             expect(result).to.include( { name: 'Building Web Sites All-in-One Desk Reference For Dummies',
                                 author: 'Doug Sahlin',
@@ -566,16 +569,17 @@ describe('Books', function (){
                                 publisher: 'Southeast University Press',
                                 category:'Computing Science',
                             } );
-                            expect(result).to.include( { name: "Multi-objective Decision Analysis",
-                                author: "Brownley, Clinton W.",
-                                publisher: "Business Expert Pr",
-                                category: "software engineering",
+                            expect(result).to.include( { name: 'Multi-objective Decision Analysis',
+                                author: 'Brownley, Clinton W.',
+                                publisher: 'Business Expert Pr',
+                                category: 'software engineering',
                             } );
 
                             done();
                         });
                 });
             });
+            // eslint-disable-next-line no-unused-vars
             describe('when id is wrong', function (done) {
                 it('should return a 404 and a message for invalid book id', function (done) {
                     chai.request(server)

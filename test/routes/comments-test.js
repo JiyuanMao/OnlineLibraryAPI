@@ -21,12 +21,12 @@ describe('Comments', function () {
                             text: comment.text,
                             username: comment.username,
                             bookname: comment.bookname,
-                        }
+                        };
                     });
                     expect(result).to.include({
-                        text: "I like it! ",
-                        bookname: "Foundations for Analytics with Python",
-                        username: "justin"
+                        text: 'I like it! ',
+                        bookname: 'Foundations for Analytics with Python',
+                        username: 'justin'
                     });
                     done();
                 });
@@ -44,9 +44,9 @@ describe('Comments', function () {
     describe('POST /comments', function () {
         it('should return confirmation message and update datastore', function (done) {
             let comment = {
-                text: "it needs improvements",
-                bookname: "Multi-objective Decision Analysis",
-                username: "theo"
+                text: 'it needs improvements',
+                bookname: 'Multi-objective Decision Analysis',
+                username: 'theo'
             };
             chai.request(server)
                 .post('/comments')
@@ -69,9 +69,9 @@ describe('Comments', function () {
                         };
                     });
                     expect(result).to.include({
-                        text: "it needs improvements",
-                        bookname: "Multi-objective Decision Analysis",
-                        username: "theo"
+                        text: 'it needs improvements',
+                        bookname: 'Multi-objective Decision Analysis',
+                        username: 'theo'
                     });
                     done();
                 });
@@ -124,9 +124,9 @@ describe('Comments', function () {
                 .get('/comments/Multi-objective Decision Analysis')
                 .end(function (err, res) {
                     expect(res.body).to.be.empty;
-                    });
-                    done();
                 });
+            done();
+        });
         it('should return a 404 and a message for invalid comment id', function(done) {
             chai.request(server)
                 .delete('/comments/1100001')
@@ -137,4 +137,4 @@ describe('Comments', function () {
                 });
         });
     });
-})
+});
