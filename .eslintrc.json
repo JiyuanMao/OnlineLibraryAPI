@@ -1,8 +1,15 @@
 {
     "env": {
-        "node": true
+        "node": true,
+        "mocha": true
     },
+    "plugins": [
+        "json"
+    ],
     "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "rules": {
         "indent": [
             "error",
