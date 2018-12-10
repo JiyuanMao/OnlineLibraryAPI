@@ -15,9 +15,9 @@
     "instrument": false,
     "check-coverage": true,
     "per-file": false,
-    "lines": 40,
-    "statements": 40,
-    "functions": 15,
+    "lines": 45,
+    "statements": 45,
+    "functions": 20,
     "branches": 10,
     "sourceMap": false,
     "instrument": false
